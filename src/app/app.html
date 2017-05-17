@@ -1,0 +1,26 @@
+<ion-menu [content]="content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Pages</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <button ion-item (click)="openPage(about)">
+        {{ "CONFIGURATION" | translate }}
+      </button>
+      <button ion-item (click)="openPage(signupPage)">
+        {{ "SIGN_UP" | translate }}
+      </button>
+      <button ion-button block (click)="translateToEnglish()">
+    {{ "BTN_ENGLISH" | translate }}
+    </button>
+
+  <button ion-button block (click)="translateToSpanish()">
+      {{ "BTN_SPANISH" | translate }}
+  </button>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-nav id="nav" #content [root]="rootPage"></ion-nav>

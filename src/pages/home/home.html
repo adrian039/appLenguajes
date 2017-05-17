@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title> {{ 'HOME' | translate }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list inset>
+
+  <ion-item>
+    <ion-label floating> {{ 'USERNAME' | translate }}</ion-label>
+    <ion-input type="text" [(ngModel)]="email" ></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>{{ 'PASSWORD' | translate }}</ion-label>
+    <ion-input type="password" [(ngModel)]="password" ></ion-input>
+  </ion-item>
+</ion-list>
+<br>
+<ion-grid>
+    <ion-row>
+<button ion-button (click)="loginUser()">{{ 'LOG_IN' | translate }}</button>
+<button ion-button (click)="regUser()">{{ 'SIGN_UP' | translate }}</button>
+<button ion-button (click)="logOut()">{{ 'LOG_OUT' | translate }}</button>
+</ion-row>
+</ion-grid>
+<br>
+<br>
+<br>
+<ion-card>
+  <ion-card-header>
+    {{ 'LGW' | translate }}
+  </ion-card-header>
+
+  <ion-list>
+    <button ion-item (click)="facebookLogin()">
+      <ion-icon name="logo-facebook" item-left></ion-icon>
+      Facebook
+    </button>
+
+    <button ion-item (click)="twitterLogin()">
+      <ion-icon name="logo-twitter" item-left></ion-icon>
+      Twitter
+    </button>
+
+    <button ion-item (click)="googleLogin()">
+      <ion-icon name="logo-google" item-left></ion-icon>
+      Google Account
+    </button>
+
+  </ion-list>
+</ion-card>
+</ion-content>
