@@ -25,6 +25,21 @@
 		CD41FC3BDC874185B09214CB /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77606F6591E4496AAD984545 /* FBSDKLoginKit.framework */; };
 		05CD27D82BB84585BB0E335A /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D55D8F12744496FB0897829 /* FBSDKShareKit.framework */; };
 		E447B2971C9C470F9A7F0966 /* CDVInAppBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BF6F52157B544D7886A40E3 /* CDVInAppBrowser.m */; };
+		25DA5BB5E7E940D386E37EEE /* GooglePlus.m in Sources */ = {isa = PBXBuildFile; fileRef = D5FE3DE8209B4F5DAEC4EACA /* GooglePlus.m */; };
+		87552C6234C4411EB2D724A5 /* GoogleAppUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D0233CA4899498D8C224FC3 /* GoogleAppUtilities.framework */; };
+		C73F7A08F3D046168FBDD10F /* GoogleAuthUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38D1F6ADA21548F6875909AA /* GoogleAuthUtilities.framework */; };
+		E1A1C32DF9C14FC1B393C152 /* GoogleNetworkingUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DB5A156B0174526B18ECCEF /* GoogleNetworkingUtilities.framework */; };
+		CF0D5B039E1548E297933A6A /* GoogleSignIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7865E39244C64AD1935B54FD /* GoogleSignIn.framework */; };
+		2F32BC9432D9435795CB6C98 /* GoogleSymbolUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21FFB24C014146A09ACFE005 /* GoogleSymbolUtilities.framework */; };
+		99EDA42DD689448C8D187C5B /* GoogleUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4FA47004FD84E3B8A2B6CB3 /* GoogleUtilities.framework */; };
+		CE3F165A100443069DA4DF79 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82DC03B9A8FA443CA58C19F3 /* AddressBook.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		D78DA5B8D299472C961DD07F /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 928722E2515849498990B73E /* CoreText.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		3DE0558322ED4FB7B62D148C /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 679824CAD9884910A75565BE /* SafariServices.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		A9965ED854284EDDAE1CAD69 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33BB577214844EF6AD2D92B1 /* Security.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		8F922634492B4241B0151814 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CD3964F456E4B8BA494FA02 /* SystemConfiguration.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		BA106778B4F847FC9860DD67 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 07DDCB7AB1F84A5199423A6B /* libz.tbd */; settings = {ATTRIBUTES = (Weak, ); }; };
+		5A0EF94C469F49D9B3B0E14D /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E311B9BBE8BC412BA2A97ECD /* libz.dylib */; settings = {ATTRIBUTES = (Weak, ); }; };
+		E2B97497BF6E46A3973CA811 /* myApp.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 2B49B24AC2B1454081D5992B /* myApp.entitlements */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +100,22 @@
 		2D55D8F12744496FB0897829 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; name = "FBSDKShareKit.framework"; path = "myApp/Plugins/cordova-plugin-facebook4/FBSDKShareKit.framework"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
 		8BF6F52157B544D7886A40E3 /* CDVInAppBrowser.m */ = {isa = PBXFileReference; name = "CDVInAppBrowser.m"; path = "cordova-plugin-inappbrowser/CDVInAppBrowser.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
 		AC0E83F0728C4331AF06B35A /* CDVInAppBrowser.h */ = {isa = PBXFileReference; name = "CDVInAppBrowser.h"; path = "cordova-plugin-inappbrowser/CDVInAppBrowser.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		D5FE3DE8209B4F5DAEC4EACA /* GooglePlus.m */ = {isa = PBXFileReference; name = "GooglePlus.m"; path = "cordova-plugin-googleplus/GooglePlus.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		9D5902B55ADF4427833CFF99 /* GooglePlus.h */ = {isa = PBXFileReference; name = "GooglePlus.h"; path = "cordova-plugin-googleplus/GooglePlus.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		9D0233CA4899498D8C224FC3 /* GoogleAppUtilities.framework */ = {isa = PBXFileReference; name = "GoogleAppUtilities.framework"; path = "myApp/Plugins/cordova-plugin-googleplus/GoogleAppUtilities.framework"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		38D1F6ADA21548F6875909AA /* GoogleAuthUtilities.framework */ = {isa = PBXFileReference; name = "GoogleAuthUtilities.framework"; path = "myApp/Plugins/cordova-plugin-googleplus/GoogleAuthUtilities.framework"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		4DB5A156B0174526B18ECCEF /* GoogleNetworkingUtilities.framework */ = {isa = PBXFileReference; name = "GoogleNetworkingUtilities.framework"; path = "myApp/Plugins/cordova-plugin-googleplus/GoogleNetworkingUtilities.framework"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		7865E39244C64AD1935B54FD /* GoogleSignIn.framework */ = {isa = PBXFileReference; name = "GoogleSignIn.framework"; path = "myApp/Plugins/cordova-plugin-googleplus/GoogleSignIn.framework"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		21FFB24C014146A09ACFE005 /* GoogleSymbolUtilities.framework */ = {isa = PBXFileReference; name = "GoogleSymbolUtilities.framework"; path = "myApp/Plugins/cordova-plugin-googleplus/GoogleSymbolUtilities.framework"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		E4FA47004FD84E3B8A2B6CB3 /* GoogleUtilities.framework */ = {isa = PBXFileReference; name = "GoogleUtilities.framework"; path = "myApp/Plugins/cordova-plugin-googleplus/GoogleUtilities.framework"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		82DC03B9A8FA443CA58C19F3 /* AddressBook.framework */ = {isa = PBXFileReference; name = "AddressBook.framework"; path = "System/Library/Frameworks/AddressBook.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		928722E2515849498990B73E /* CoreText.framework */ = {isa = PBXFileReference; name = "CoreText.framework"; path = "System/Library/Frameworks/CoreText.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		679824CAD9884910A75565BE /* SafariServices.framework */ = {isa = PBXFileReference; name = "SafariServices.framework"; path = "System/Library/Frameworks/SafariServices.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		33BB577214844EF6AD2D92B1 /* Security.framework */ = {isa = PBXFileReference; name = "Security.framework"; path = "System/Library/Frameworks/Security.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		2CD3964F456E4B8BA494FA02 /* SystemConfiguration.framework */ = {isa = PBXFileReference; name = "SystemConfiguration.framework"; path = "System/Library/Frameworks/SystemConfiguration.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		07DDCB7AB1F84A5199423A6B /* libz.tbd */ = {isa = PBXFileReference; name = "libz.tbd"; path = "usr/lib/libz.tbd"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = sourcecode.text-based-dylib-definition; explicitFileType = undefined; includeInIndex = 0; };
+		E311B9BBE8BC412BA2A97ECD /* libz.dylib */ = {isa = PBXFileReference; name = "libz.dylib"; path = "usr/lib/libz.dylib"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = compiled.mach-o.dylib; explicitFileType = undefined; includeInIndex = 0; };
+		2B49B24AC2B1454081D5992B /* myApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = unknown; name = "myApp.entitlements"; path = "myApp.entitlements"; sourceTree = "<group>"; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +128,19 @@
 				9521EA9576B3422D880D88F2 /* FBSDKCoreKit.framework in Frameworks */,
 				CD41FC3BDC874185B09214CB /* FBSDKLoginKit.framework in Frameworks */,
 				05CD27D82BB84585BB0E335A /* FBSDKShareKit.framework in Frameworks */,
+				87552C6234C4411EB2D724A5 /* GoogleAppUtilities.framework in Frameworks */,
+				C73F7A08F3D046168FBDD10F /* GoogleAuthUtilities.framework in Frameworks */,
+				E1A1C32DF9C14FC1B393C152 /* GoogleNetworkingUtilities.framework in Frameworks */,
+				CF0D5B039E1548E297933A6A /* GoogleSignIn.framework in Frameworks */,
+				2F32BC9432D9435795CB6C98 /* GoogleSymbolUtilities.framework in Frameworks */,
+				99EDA42DD689448C8D187C5B /* GoogleUtilities.framework in Frameworks */,
+				CE3F165A100443069DA4DF79 /* AddressBook.framework in Frameworks */,
+				D78DA5B8D299472C961DD07F /* CoreText.framework in Frameworks */,
+				3DE0558322ED4FB7B62D148C /* SafariServices.framework in Frameworks */,
+				A9965ED854284EDDAE1CAD69 /* Security.framework in Frameworks */,
+				8F922634492B4241B0151814 /* SystemConfiguration.framework in Frameworks */,
+				BA106778B4F847FC9860DD67 /* libz.tbd in Frameworks */,
+				5A0EF94C469F49D9B3B0E14D /* libz.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,6 +203,7 @@
 				3047A50E1AB8057F00498E2A /* config */,
 				8D1107310486CEB800E47090 /* myApp-Info.plist */,
 				6AFF5BF81D6E424B00AB3073 /* CDVLaunchScreen.storyboard */,
+				2B49B24AC2B1454081D5992B /* myApp.entitlements */,
 			);
 			name = Resources;
 			path = myApp/Resources;
@@ -171,6 +216,19 @@
 				CBA22748D963419FB816B1F1 /* FBSDKCoreKit.framework */,
 				77606F6591E4496AAD984545 /* FBSDKLoginKit.framework */,
 				2D55D8F12744496FB0897829 /* FBSDKShareKit.framework */,
+				9D0233CA4899498D8C224FC3 /* GoogleAppUtilities.framework */,
+				38D1F6ADA21548F6875909AA /* GoogleAuthUtilities.framework */,
+				4DB5A156B0174526B18ECCEF /* GoogleNetworkingUtilities.framework */,
+				7865E39244C64AD1935B54FD /* GoogleSignIn.framework */,
+				21FFB24C014146A09ACFE005 /* GoogleSymbolUtilities.framework */,
+				E4FA47004FD84E3B8A2B6CB3 /* GoogleUtilities.framework */,
+				82DC03B9A8FA443CA58C19F3 /* AddressBook.framework */,
+				928722E2515849498990B73E /* CoreText.framework */,
+				679824CAD9884910A75565BE /* SafariServices.framework */,
+				33BB577214844EF6AD2D92B1 /* Security.framework */,
+				2CD3964F456E4B8BA494FA02 /* SystemConfiguration.framework */,
+				07DDCB7AB1F84A5199423A6B /* libz.tbd */,
+				E311B9BBE8BC412BA2A97ECD /* libz.dylib */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -212,6 +270,8 @@
 				05689F912C4F4C93BE50E375 /* FacebookConnectPlugin.h */,
 				8BF6F52157B544D7886A40E3 /* CDVInAppBrowser.m */,
 				AC0E83F0728C4331AF06B35A /* CDVInAppBrowser.h */,
+				D5FE3DE8209B4F5DAEC4EACA /* GooglePlus.m */,
+				9D5902B55ADF4427833CFF99 /* GooglePlus.h */,
 			);
 			name = Plugins;
 			path = myApp/Plugins;
@@ -301,6 +361,7 @@
 				302D95F214D2391D003F00A1 /* MainViewController.xib in Resources */,
 				0207DA581B56EA530066E2B4 /* Images.xcassets in Resources */,
 				6AFF5BF91D6E424B00AB3073 /* CDVLaunchScreen.storyboard in Resources */,
+				E2B97497BF6E46A3973CA811 /* myApp.entitlements in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,6 +401,7 @@
 				09D32C4759704934B7AD2277 /* IonicKeyboard.m in Sources */,
 				1186461AC27C4AF8AF23FAE7 /* FacebookConnectPlugin.m in Sources */,
 				E447B2971C9C470F9A7F0966 /* CDVInAppBrowser.m in Sources */,
+				25DA5BB5E7E940D386E37EEE /* GooglePlus.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,7 +444,14 @@
 					"\"myApp/Plugins/cordova-plugin-facebook4\"",
 					"\"myApp/Plugins/cordova-plugin-facebook4\"",
 					"\"myApp/Plugins/cordova-plugin-facebook4\"",
+					"\"myApp/Plugins/cordova-plugin-googleplus\"",
+					"\"myApp/Plugins/cordova-plugin-googleplus\"",
+					"\"myApp/Plugins/cordova-plugin-googleplus\"",
+					"\"myApp/Plugins/cordova-plugin-googleplus\"",
+					"\"myApp/Plugins/cordova-plugin-googleplus\"",
+					"\"myApp/Plugins/cordova-plugin-googleplus\"",
 				);
+				CODE_SIGN_ENTITLEMENTS = "myApp/Resources/myApp.entitlements";
 			};
 			name = Debug;
 		};
@@ -412,7 +481,14 @@
 					"\"myApp/Plugins/cordova-plugin-facebook4\"",
 					"\"myApp/Plugins/cordova-plugin-facebook4\"",
 					"\"myApp/Plugins/cordova-plugin-facebook4\"",
+					"\"myApp/Plugins/cordova-plugin-googleplus\"",
+					"\"myApp/Plugins/cordova-plugin-googleplus\"",
+					"\"myApp/Plugins/cordova-plugin-googleplus\"",
+					"\"myApp/Plugins/cordova-plugin-googleplus\"",
+					"\"myApp/Plugins/cordova-plugin-googleplus\"",
+					"\"myApp/Plugins/cordova-plugin-googleplus\"",
 				);
+				CODE_SIGN_ENTITLEMENTS = "myApp/Resources/myApp.entitlements";
 			};
 			name = Release;
 		};
@@ -440,6 +516,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = NO;
+				CODE_SIGN_ENTITLEMENTS = "myApp/Resources/myApp.entitlements";
 			};
 			name = Debug;
 		};
@@ -466,6 +543,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = NO;
+				CODE_SIGN_ENTITLEMENTS = "myApp/Resources/myApp.entitlements";
 			};
 			name = Release;
 		};

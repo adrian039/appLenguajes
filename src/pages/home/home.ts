@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 import { service } from '../service/service';
 import firebase from 'firebase';
 import { Facebook } from '@ionic-native/facebook';
+import { GooglePlus } from '@ionic-native/google-plus';
 import { ToastController } from 'ionic-angular';
 import { Platform } from 'ionic-angular';
 
@@ -18,52 +19,37 @@ export class HomePage {
   auth: any
   userProfile: any = null;
   constructor(public toastCtrl: ToastController, public navCtrl: NavController, private service:service, 
-    private facebook: Facebook, public plt: Platform) {
+    private facebook: Facebook, public plt: Platform,  private googlePlus: GooglePlus) {
   		var app=service.getApp();
   		auth = app.auth();
   }
 
-  googleLogin(): void{
+  googleLogin(): void{ 
+    if(this.plt.is('android')){
+         this.googlePlus.login({
+    'webClientId': '<Your web client ID>',
+    'offline': true
+  }).then( res => {
+    firebase.auth().signInWithCredential(firebase.auth.GoogleAuthProvider.credential(res.idToken))
+      .then( success => {
+        console.log("Firebase success: " + JSON.stringify(success));
+        this.loginComplete();
+      })
+      .catch( error => console.log("Firebase failure: " + JSON.stringify(error)));
+    }).catch(err => console.error("Error: ", err));
+    }else{
   		auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
   		.then((authData) => {
-  		let toast = this.toastCtrl.create({
-     message: 'Login successfully :)',
-     duration: 5000,
-     position: 'middle'
-    });
-    toast.present();
+  		this.loginComplete();
 
   	}).catch((_error) => {
-  		let toast = this.toastCtrl.create({
-     message: 'User was not added, User already exist! :( ',
-     duration: 5000,
-     position: 'middle'
-    });
-    toast.present();
+  		this.errorLogin();
   	})
   }
-
-  facebookLogin(): void{
-  		 auth.signInWithPopup(new firebase.auth.FacebookAuthProvider())
-  		 .then((authData) => {
-  		let toast = this.toastCtrl.create({
-     message: 'Login successfully :)',
-     duration: 5000,
-     position: 'middle'
-    });
-    toast.present();
-
-  	}).catch((_error) => {
-  		let toast = this.toastCtrl.create({
-     message: 'User was not added, User already exist! :( ',
-     duration: 5000,
-     position: 'middle'
-    });
-    toast.present();
-  	})
   }
 
-  fbLogin(){
+ 
+  fbLogin(): void{
     if(this.plt.is('android')){
     this.facebook.login(['email']).then( (response) => {
         const facebookCredential = firebase.auth.FacebookAuthProvider
@@ -71,7 +57,7 @@ export class HomePage {
 
         firebase.auth().signInWithCredential(facebookCredential)
         .then((success) => {
-            console.log("Firebase success: " + JSON.stringify(success));
+            this.loginComplete();
             this.userProfile = success;
         })
         .catch((error) => {
@@ -82,20 +68,10 @@ export class HomePage {
   }else{
     auth.signInWithPopup(new firebase.auth.FacebookAuthProvider())
        .then((authData) => {
-      let toast = this.toastCtrl.create({
-     message: 'Login successfully :)',
-     duration: 5000,
-     position: 'middle'
-    });
-    toast.present();
+      this.loginComplete();
 
     }).catch((_error) => {
-      let toast = this.toastCtrl.create({
-     message: 'User was not added, User already exist! :( ',
-     duration: 5000,
-     position: 'middle'
-    });
-    toast.present();
+      this.errorLogin();
     })
   }
 }
@@ -103,20 +79,10 @@ export class HomePage {
   twitterLogin(): void{
 firebase.auth().signInWithPopup(new firebase.auth.TwitterAuthProvider())
 .then((authData) => {
-      let toast = this.toastCtrl.create({
-     message: 'Login successfully :)',
-     duration: 5000,
-     position: 'middle'
-    });
-    toast.present();
+     this.loginComplete();
 
     }).catch((_error) => {
-      let toast = this.toastCtrl.create({
-     message: 'User was not added, User already exist! :( ',
-     duration: 5000,
-     position: 'middle'
-    });
-    toast.present();
+     this.errorLogin();
     })
   }
 
@@ -124,20 +90,10 @@ firebase.auth().signInWithPopup(new firebase.auth.TwitterAuthProvider())
   	
   	 auth.createUserWithEmailAndPassword(this.email, this.password)
   	.then((authData) => {
-  		let toast = this.toastCtrl.create({
-     message: 'User was added successfully! :)',
-     duration: 5000,
-     position: 'middle'
-    });
-    toast.present();
+  		this.loginComplete();
 
   	}).catch((_error) => {
-  		let toast = this.toastCtrl.create({
-     message: 'User was not added, User already exist! :( ',
-     duration: 5000,
-     position: 'middle'
-    });
-    toast.present();
+  		this.errorLogin();
   	})
     this.email='';
     this.password='';
@@ -148,12 +104,7 @@ firebase.auth().signInWithPopup(new firebase.auth.TwitterAuthProvider())
   loginUser(){
   	auth.signInWithEmailAndPassword(this.email, this.password)
   	.then((authData) => {
-  	let toast = this.toastCtrl.create({
-     message: 'Login successfully :)',
-     duration: 5000,
-     position: 'middle'
-    });
-    toast.present();
+  	this.loginComplete();
     //this.navCtrl.push(AboutPage);
   	}).catch((_error) => {
   		let toast = this.toastCtrl.create({
@@ -168,7 +119,22 @@ firebase.auth().signInWithPopup(new firebase.auth.TwitterAuthProvider())
     this.password='';
   }
 
-  logOut(): void{
+  loginComplete(): void{
+    let toast = this.toastCtrl.create({
+     message: 'Login successfully :)',
+     duration: 5000,
+     position: 'middle'
+    });
+    toast.present();
+  }
+
+  errorLogin(): void{
+    let toast = this.toastCtrl.create({
+     message: 'User was not added, User already exist! :( ',
+     duration: 5000,
+     position: 'middle'
+    });
+    toast.present();
   }
 
  

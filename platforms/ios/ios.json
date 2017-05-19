@@ -67,6 +67,14 @@
                         {
                             "xml": "<feature name=\"InAppBrowser\"><param name=\"ios-package\" value=\"CDVInAppBrowser\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"GooglePlus\"><param name=\"ios-package\" value=\"GooglePlus\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<access origin=\"https://accounts.google.com/*\" />",
+                            "count": 1
                         }
                     ]
                 }
@@ -88,6 +96,10 @@
                     "CFBundleURLTypes": [
                         {
                             "xml": "<array><dict><key>CFBundleURLSchemes</key><array><string>fb162665337600696</string></array></dict></array>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<array><dict><key>CFBundleTypeRole</key><string>Editor</string><key>CFBundleURLName</key><string>REVERSED_CLIENT_ID</string><key>CFBundleURLSchemes</key><array><string>277425577496-dnlcuktkpo5j1visfb81auev97t625p1.apps.googleusercontent.com</string></array></dict></array>",
                             "count": 1
                         }
                     ],
@@ -132,6 +144,10 @@
             "PACKAGE_NAME": "com.ionicframework.myapp745530"
         },
         "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.ionicframework.myapp745530"
+        },
+        "cordova-plugin-googleplus": {
+            "REVERSED_CLIENT_ID": "277425577496-dnlcuktkpo5j1visfb81auev97t625p1.apps.googleusercontent.com",
             "PACKAGE_NAME": "com.ionicframework.myapp745530"
         }
     },
@@ -202,6 +218,14 @@
                 "cordova.InAppBrowser.open",
                 "window.open"
             ]
+        },
+        {
+            "id": "cordova-plugin-googleplus.GooglePlus",
+            "file": "plugins/cordova-plugin-googleplus/www/GooglePlus.js",
+            "pluginId": "cordova-plugin-googleplus",
+            "clobbers": [
+                "window.plugins.googleplus"
+            ]
         }
     ],
     "plugin_metadata": {
@@ -212,6 +236,7 @@
         "cordova-plugin-whitelist": "1.3.1",
         "ionic-plugin-keyboard": "2.2.1",
         "cordova-plugin-facebook4": "1.8.0",
-        "cordova-plugin-inappbrowser": "1.7.1"
+        "cordova-plugin-inappbrowser": "1.7.1",
+        "cordova-plugin-googleplus": "5.1.1"
     }
 }
