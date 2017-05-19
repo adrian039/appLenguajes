@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { service } from '../service/service';
 import firebase from 'firebase';
-
+import { Facebook } from '@ionic-native/facebook';
 import { ToastController } from 'ionic-angular';
 
 var auth;
@@ -15,7 +15,8 @@ export class HomePage {
 	password="";
 	error: any
   auth: any
-  constructor(public toastCtrl: ToastController, public navCtrl: NavController, private service:service) {
+  userProfile: any = null;
+  constructor(public toastCtrl: ToastController, public navCtrl: NavController, private service:service, private facebook: Facebook) {
   		var app=service.getApp();
   		auth = app.auth();
   }
@@ -59,6 +60,29 @@ export class HomePage {
     toast.present();
   	})
   }
+
+  fbLogin(){
+    this.facebook.login(['email']).then( (response) => {
+        const facebookCredential = firebase.auth.FacebookAuthProvider
+            .credential(response.authResponse.accessToken);
+
+        firebase.auth().signInWithCredential(facebookCredential)
+        .then((success) => {
+            console.log("Firebase success: " + JSON.stringify(success));
+            let toast = this.toastCtrl.create({
+     message: 'Login successfully :)',
+     duration: 5000,
+     position: 'middle'
+    });
+    toast.present();
+            this.userProfile = success;
+        })
+        .catch((error) => {
+            console.log("Firebase failure: " + JSON.stringify(error));
+        });
+
+    }).catch((error) => { console.log(error) });
+}
 
   twitterLogin(): void{
 firebase.auth().signInWithPopup(new firebase.auth.TwitterAuthProvider())
