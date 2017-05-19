@@ -1,11 +1,9 @@
 import { Component, ViewChild } from '@angular/core';
 import { NavController, Content, NavParams } from 'ionic-angular';
 import { service } from '../service/service';
-import firebase from 'firebase';
 
 var username="App";
 var databaseRef;
-var messages=[];
 @Component({
   selector: 'page-about',
   templateUrl: 'about.html'
@@ -21,7 +19,6 @@ username="";
       var app=service.getApp();
       var database = app.database();
       var auth = app.auth();
-      var storage = app.storage();
 
       databaseRef = database.ref().child("chat");
 
