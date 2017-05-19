@@ -4,6 +4,7 @@ import { service } from '../service/service';
 import firebase from 'firebase';
 import { Facebook } from '@ionic-native/facebook';
 import { ToastController } from 'ionic-angular';
+import { Platform } from 'ionic-angular';
 
 var auth;
 @Component({
@@ -16,7 +17,8 @@ export class HomePage {
 	error: any
   auth: any
   userProfile: any = null;
-  constructor(public toastCtrl: ToastController, public navCtrl: NavController, private service:service, private facebook: Facebook) {
+  constructor(public toastCtrl: ToastController, public navCtrl: NavController, private service:service, 
+    private facebook: Facebook, public plt: Platform) {
   		var app=service.getApp();
   		auth = app.auth();
   }
@@ -62,6 +64,7 @@ export class HomePage {
   }
 
   fbLogin(){
+    if(this.plt.is('android')){
     this.facebook.login(['email']).then( (response) => {
         const facebookCredential = firebase.auth.FacebookAuthProvider
             .credential(response.authResponse.accessToken);
@@ -69,12 +72,6 @@ export class HomePage {
         firebase.auth().signInWithCredential(facebookCredential)
         .then((success) => {
             console.log("Firebase success: " + JSON.stringify(success));
-            let toast = this.toastCtrl.create({
-     message: 'Login successfully :)',
-     duration: 5000,
-     position: 'middle'
-    });
-    toast.present();
             this.userProfile = success;
         })
         .catch((error) => {
@@ -82,6 +79,25 @@ export class HomePage {
         });
 
     }).catch((error) => { console.log(error) });
+  }else{
+    auth.signInWithPopup(new firebase.auth.FacebookAuthProvider())
+       .then((authData) => {
+      let toast = this.toastCtrl.create({
+     message: 'Login successfully :)',
+     duration: 5000,
+     position: 'middle'
+    });
+    toast.present();
+
+    }).catch((_error) => {
+      let toast = this.toastCtrl.create({
+     message: 'User was not added, User already exist! :( ',
+     duration: 5000,
+     position: 'middle'
+    });
+    toast.present();
+    })
+  }
 }
 
   twitterLogin(): void{
