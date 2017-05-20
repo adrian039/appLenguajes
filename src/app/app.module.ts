@@ -11,6 +11,7 @@ import { MyApp } from './app.component';
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
+import { ChatPage } from '../pages/chat/chat';
 import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -25,6 +26,7 @@ import { GooglePlus } from '@ionic-native/google-plus';
     AboutPage,
     ContactPage,
     HomePage,
+    ChatPage,
     TabsPage
   ],
   imports: [
@@ -41,6 +43,7 @@ import { GooglePlus } from '@ionic-native/google-plus';
     MyApp,
     AboutPage,
     ContactPage,
+    ChatPage,
     HomePage,
     TabsPage
   ],

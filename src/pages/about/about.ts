@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { NavController, Content, NavParams } from 'ionic-angular';
 import { service } from '../service/service';
+import {ChatPage} from '../chat/chat';
 
 var username="App";
 var databaseRef;
@@ -19,7 +20,6 @@ username="";
       var app=service.getApp();
       var database = app.database();
       var auth = app.auth();
-
       databaseRef = database.ref().child("chat");
 
       databaseRef.on("child_added",function(snapshot){
