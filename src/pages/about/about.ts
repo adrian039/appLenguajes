@@ -1,7 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { NavController, Content, NavParams } from 'ionic-angular';
 import { service } from '../service/service';
-import {ChatPage} from '../chat/chat';
 
 var username="App";
 var databaseRef;

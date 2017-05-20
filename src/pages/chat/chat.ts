@@ -12,7 +12,6 @@ export class ChatPage {
   }
 
   openChat(): void{
-  this.navCtrl.popTo(AboutPage);
   	this.navCtrl.push(AboutPage);
   }
 
