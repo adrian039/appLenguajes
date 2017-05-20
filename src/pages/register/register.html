@@ -36,4 +36,34 @@
     <ion-input type="password" [(ngModel)]="password" ></ion-input>
   </ion-item>
 </ion-list>
+<ion-grid>
+ <ion-row>
+<button ion-button (click)="loginUser()">Signup </button>
+</ion-row>
+</ion-grid>
+
+
+<ion-card>
+  <ion-card-header>
+    Signup with
+  </ion-card-header>
+
+  <ion-list>
+    <button ion-item (click)="fbLogin()">
+      <ion-icon name="logo-facebook" item-left></ion-icon>
+      Facebook
+    </button>
+
+    <button ion-item (click)="twitterLogin()">
+      <ion-icon name="logo-twitter" item-left></ion-icon>
+      Twitter
+    </button>
+
+    <button ion-item (click)="googleLogin()">
+      <ion-icon name="logo-google" item-left></ion-icon>
+      Google Account
+    </button>
+
+  </ion-list>
+</ion-card>
 </ion-content>
