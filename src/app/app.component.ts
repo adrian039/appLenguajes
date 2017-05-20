@@ -3,9 +3,10 @@ import { Platform } from 'ionic-angular';
 import { TranslateService } from 'ng2-translate';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { TabsPage } from '../pages/tabs/tabs';
+import { LoginPage } from '../pages/login/login';
 import firebase from 'firebase';
 import { service } from '../pages/service/service';
+
 
 
 @Component({
@@ -13,9 +14,10 @@ import { service } from '../pages/service/service';
   providers: [service]
 })
 export class MyApp {
-  rootPage:any = TabsPage;
+  rootPage:any = LoginPage;
 
-  constructor(platform: Platform, private service:service, statusBar: StatusBar, splashScreen: SplashScreen, public translateService: TranslateService) {
+  constructor(platform: Platform, private service:service, statusBar: StatusBar, splashScreen: SplashScreen, 
+    public translateService: TranslateService) {
     var config = {
     apiKey: "AIzaSyDzLzteM80SiCuZXLUptu4BbDLrX7Nmtbo",
     authDomain: "base-58db2.firebaseapp.com",
@@ -36,6 +38,7 @@ export class MyApp {
       splashScreen.hide();
     });
   }
+
 translateToSpanish(){
   this.translateService.use('es');
 }

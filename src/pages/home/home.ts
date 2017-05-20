@@ -105,7 +105,6 @@ firebase.auth().signInWithPopup(new firebase.auth.TwitterAuthProvider())
   	auth.signInWithEmailAndPassword(this.email, this.password)
   	.then((authData) => {
   	this.loginComplete();
-    //this.navCtrl.push(AboutPage);
   	}).catch((_error) => {
   		let toast = this.toastCtrl.create({
      message: 'Wrong email or password :(',

@@ -1,0 +1,55 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Login</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list inset>
+
+  <ion-item>
+    <ion-label floating> Username</ion-label>
+    <ion-input type="text" [(ngModel)]="email" ></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>Password</ion-label>
+    <ion-input type="password" [(ngModel)]="password" ></ion-input>
+  </ion-item>
+</ion-list>
+<br>
+<ion-grid>
+ <ion-row>
+<button ion-button (click)="loginUser()">Login </button>
+<button ion-button (click)="regUser()">Signup</button>
+</ion-row>
+</ion-grid>
+
+<ion-card>
+  <ion-card-header>
+    Login with
+  </ion-card-header>
+
+  <ion-list>
+    <button ion-item (click)="fbLogin()">
+      <ion-icon name="logo-facebook" item-left></ion-icon>
+      Facebook
+    </button>
+
+    <button ion-item (click)="twitterLogin()">
+      <ion-icon name="logo-twitter" item-left></ion-icon>
+      Twitter
+    </button>
+
+    <button ion-item (click)="googleLogin()">
+      <ion-icon name="logo-google" item-left></ion-icon>
+      Google Account
+    </button>
+
+  </ion-list>
+</ion-card>
+</ion-content>
