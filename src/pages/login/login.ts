@@ -8,6 +8,8 @@ import { ToastController } from 'ionic-angular';
 import { Platform } from 'ionic-angular';
 import {TabsPage} from '../tabs/tabs';
 import {RegisterPage} from '../register/register';
+import { AlertController } from 'ionic-angular';
+import { AdminPage } from '../admin/admin';
 
 var auth;
 @Component({
@@ -21,7 +23,7 @@ export class LoginPage {
   auth: any
   userProfile: any = null;
   constructor(public toastCtrl: ToastController, public navCtrl: NavController, private service:service, 
-    private facebook: Facebook, public plt: Platform,  private googlePlus: GooglePlus) {
+    private facebook: Facebook, public plt: Platform,  private googlePlus: GooglePlus, private alertCtrl: AlertController) {
 
   	var app=service.getApp();
   	auth = app.auth();
@@ -135,6 +137,49 @@ firebase.auth().signInWithPopup(new firebase.auth.TwitterAuthProvider())
     toast.present();
   }
 
+showMsj(msj): void{
+    let toast = this.toastCtrl.create({
+     message: msj,
+     duration: 3500,
+     position: 'middle'
+    });
+    toast.present();
+  }
+
+presentPrompt() {
+  let alert = this.alertCtrl.create({
+    title: 'Login',
+    message: 'Enter the admin password',
+    inputs: [
+    
+      {
+        name: 'password',
+        placeholder: 'Password',
+        type: 'password'
+      }
+    ],
+    buttons: [
+      {
+        text: 'Cancel',
+        role: 'cancel',
+        handler: data => {
+          //console.log('Cancel clicked');
+        }
+      },
+      {
+        text: 'Login',
+        handler: data => {
+          if (data.password=='lenguajes2017') {
+            this.navCtrl.push(AdminPage);
+          } else {
+            this.showMsj('Wrong admin password! :(');
+          }
+        }
+      }
+    ]
+  });
+  alert.present();
+}
  
 
 }

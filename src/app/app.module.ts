@@ -15,6 +15,7 @@ import { ChatPage } from '../pages/chat/chat';
 import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login';
 import {RegisterPage} from '../pages/register/register';
+import {AdminPage} from '../pages/admin/admin';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -31,7 +32,8 @@ import { GooglePlus } from '@ionic-native/google-plus';
     ChatPage,
     TabsPage, 
     LoginPage,
-    RegisterPage
+    RegisterPage,
+    AdminPage
   ],
   imports: [
     BrowserModule,
@@ -51,7 +53,8 @@ import { GooglePlus } from '@ionic-native/google-plus';
     HomePage,
     TabsPage,
     LoginPage,
-    RegisterPage
+    RegisterPage,
+    AdminPage
   ],
   providers: [
     StatusBar,
