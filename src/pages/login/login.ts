@@ -63,6 +63,8 @@ export class LoginPage {
         .then((success) => {
             this.loginComplete();
             this.userProfile = success;
+            alert(this.userProfile.email);
+            alert(this.userProfile.displayName);
             this.navCtrl.push(TabsPage);
         })
         .catch((error) => {
@@ -73,9 +75,10 @@ export class LoginPage {
   }else{
     auth.signInWithPopup(new firebase.auth.FacebookAuthProvider())
        .then((authData) => {
-      this.loginComplete();
-      this.navCtrl.push(TabsPage);
+     this.loginComplete();
+     this.navCtrl.push(TabsPage);
     }).catch((_error) => {
+      alert(_error);
       this.errorLogin();
     })
   }

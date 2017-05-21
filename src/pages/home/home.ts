@@ -69,7 +69,6 @@ export class HomePage {
     auth.signInWithPopup(new firebase.auth.FacebookAuthProvider())
        .then((authData) => {
       this.loginComplete();
-
     }).catch((_error) => {
       this.errorLogin();
     })
