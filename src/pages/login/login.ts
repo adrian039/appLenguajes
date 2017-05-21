@@ -65,8 +65,6 @@ export class LoginPage {
         .then((success) => {
             this.loginComplete();
             this.userProfile = success;
-            alert(this.userProfile.email);
-            alert(this.userProfile.displayName);
             this.navCtrl.push(TabsPage);
         })
         .catch((error) => {

@@ -9,6 +9,7 @@ import { service } from '../pages/service/service';
 
 
 
+
 @Component({
   templateUrl: 'app.html',
   providers: [service]
