@@ -1,0 +1,27 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Sub-Category</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+<ion-grid>
+  <ion-row>
+    <ion-input [(ngModel)]="category" required placeholder="Add Sub-Category"></ion-input>
+			<button ion-button color="light" clear icon-only (click)="addCategory()">
+      <ion-icon name='add'></ion-icon>
+    </button>
+    </ion-row>
+    </ion-grid>
+  
+ <ion-list>
+  <ion-item *ngFor="let lista of listaNombres " >
+    <h2>{{lista}}</h2>
+    <button ion-button clear item-right (click)="editCategory(lista)">Edit</button>
+    </ion-item>
+</ion-list>
+</ion-content>

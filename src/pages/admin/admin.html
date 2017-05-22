@@ -2,27 +2,26 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Admin</ion-title>
+    <ion-title>Category</ion-title>
   </ion-navbar>
 </ion-header>
 
 
 <ion-content>
-
-	<ion-grid>
-		<ion-row>
-			 <ion-input [(ngModel)]="categoryName"  required placeholder="Name"></ion-input>
-			<button ion-button color="light" clear icon-only >
+<ion-grid>
+  <ion-row>
+    <ion-input [(ngModel)]="category" required placeholder="Add Category"></ion-input>
+			<button ion-button color="light" clear icon-only (click)="addCategory()">
       <ion-icon name='add'></ion-icon>
     </button>
-		</ion-row>
-	
-	</ion-grid>
-
-<ion-list id="list">
-  <ion-item>
-   
-   
-  </ion-item>
+    </ion-row>
+    </ion-grid>
+  
+ <ion-list>
+  <ion-item *ngFor="let lista of listaNombres " >
+    <h2>{{lista}}</h2>
+    <button ion-button clear item-right (click)="editCategory(lista)">Edit</button>
+    <button ion-button clear item-right (click)="sCategory(lista)">Sub-Category</button>
+    </ion-item>
 </ion-list>
 </ion-content>

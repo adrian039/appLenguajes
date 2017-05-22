@@ -16,6 +16,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login';
 import {RegisterPage} from '../pages/register/register';
 import {AdminPage} from '../pages/admin/admin';
+import {SCategoryPage} from '../pages/s-category/s-category';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -33,7 +34,8 @@ import { GooglePlus } from '@ionic-native/google-plus';
     TabsPage, 
     LoginPage,
     RegisterPage,
-    AdminPage
+    AdminPage,
+    SCategoryPage
   ],
   imports: [
     BrowserModule,
@@ -54,7 +56,8 @@ import { GooglePlus } from '@ionic-native/google-plus';
     TabsPage,
     LoginPage,
     RegisterPage,
-    AdminPage
+    AdminPage,
+    SCategoryPage
   ],
   providers: [
     StatusBar,
