@@ -4,7 +4,6 @@ import { service } from '../service/service';
 import { AlertController } from 'ionic-angular';
 
 
-var username="App";
 var databaseRef;
 var listaNombres;
 var par;
@@ -22,14 +21,12 @@ export class SCategoryPage {
   	par=this.par1;
   	var app=service.getApp();
       var database = app.database();
-      var auth = app.auth();
       listaNombres=[];
       databaseRef = database.ref().child("sCategory");
   	databaseRef.on("child_added",function(snapshot){
-      var catName=snapshot.child("name").val();
       var origin=snapshot.child("origin").val();
       if(origin==par){
-      	listaNombres.push(catName);
+      	listaNombres.push(snapshot);
       }
       
      });	
@@ -43,13 +40,13 @@ export class SCategoryPage {
   }
 
   update(origin, target): void{
-  		
+  	databaseRef.child(origin.key).update({"/name":target});	
   }
  
   editCategory(name): void{
   	let alert = this.alertCtrl.create({
     title: 'Edit Sub-Category',
-    message: 'Enter the new name for ' + name,
+    message: 'Enter the new name for ' + name.child("name").val(),
     inputs: [
     
       {
@@ -69,12 +66,25 @@ export class SCategoryPage {
       {
         text: 'Save',
         handler: data => {
-          this.update(name, targetName);
+          this.update(name, data.targetName);
+          this.refreshList();
         }
       }
     ]
   });
   alert.present();
+  }
+
+  refreshList(): void{
+  	listaNombres=[];
+  	databaseRef.on("child_added",function(snapshot){
+      var origin=snapshot.child("origin").val();
+      if(origin==par){
+      	listaNombres.push(snapshot);
+      }
+      
+     });	
+  	this.listaNombres=listaNombres;
   }
  
 }

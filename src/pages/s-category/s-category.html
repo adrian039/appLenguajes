@@ -19,8 +19,8 @@
     </ion-grid>
   
  <ion-list>
-  <ion-item *ngFor="let lista of listaNombres " >
-    <h2>{{lista}}</h2>
+  <ion-item *ngFor="let lista of listaNombres" >
+    <h2>{{lista.child("name").val()}}</h2>
     <button ion-button clear item-right (click)="editCategory(lista)">Edit</button>
     </ion-item>
 </ion-list>

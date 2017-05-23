@@ -4,7 +4,6 @@ import { service } from '../service/service';
 import { AlertController } from 'ionic-angular';
 import { SCategoryPage } from '../s-category/s-category';
 
-var username="App";
 var databaseRef;
 var listaNombres;
 @Component({
@@ -19,13 +18,10 @@ export class AdminPage {
    private alertCtrl: AlertController) {
   	 var app=service.getApp();
       var database = app.database();
-      var auth = app.auth();
       listaNombres=[];
       databaseRef = database.ref().child("category");
   	databaseRef.on("child_added",function(snapshot){
-      var catName=snapshot.child("name").val();
-      listaNombres.push(catName);
-      
+      listaNombres.push(snapshot);
      });	
   	this.listaNombres=listaNombres;
   }
@@ -37,17 +33,20 @@ export class AdminPage {
   }
 
   sCategory(name): void{
-  	this.navCtrl.push(SCategoryPage, {param1:name});
+  	this.navCtrl.push(SCategoryPage, {param1:name.child("name").val()});
   }
 
   update(origin, target): void{
+ 
+  databaseRef.child(origin.key).update({"/name":target});
+
   		
   }
 
   editCategory(name): void{
   	let alert = this.alertCtrl.create({
     title: 'Edit Category',
-    message: 'Enter the new name for ' + name,
+    message: 'Enter the new name for ' + name.child("name").val(),
     inputs: [
     
       {
@@ -67,7 +66,8 @@ export class AdminPage {
       {
         text: 'Save',
         handler: data => {
-          this.update(name, targetName);
+          this.update(name, data.targetName);
+          this.refreshList();
         }
       }
     ]
@@ -75,7 +75,13 @@ export class AdminPage {
   alert.present();
   }
  
-
+  refreshList(): void{
+  	listaNombres=[];
+  	databaseRef.on("child_added",function(snapshot){
+      listaNombres.push(snapshot);
+     });	
+  	this.listaNombres=listaNombres;
+  }
 
  
 
