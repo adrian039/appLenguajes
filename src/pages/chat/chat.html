@@ -7,12 +7,25 @@
 </ion-header>
 
 <ion-content>
+<ion-item>
+
+<ion-label>New chat with.. </ion-label>
+<ion-select [(ngModel)]="user" submitText="Ok" cancelText="Cancel">
+        <ion-option *ngFor="let lista of listaNombres " >{{lista}}</ion-option>
+        
+</ion-select>
+<button ion-button color="light" clear item-right icon-only (click)="addChat(this.user)">
+      <ion-icon name='add'></ion-icon>
+</button>
+
+</ion-item>
   <ion-list>
-  <ion-item>
+  <ion-item *ngFor="let listaU of listaUsuarios ">
    
-    <h2>Adrian</h2>
-    <p>New Message!</p>
-    <button ion-button clear item-right (click)="openChat()">View</button>
+    <h2>{{listaU}}</h2>
+    <button ion-button clear item-right (click)="openChat(listaU)">View</button>
   </ion-item>
 </ion-list>
+
+
 </ion-content>

@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-
 import { ChatPage} from '../chat/chat';
 import { ContactPage } from '../contact/contact';
 import { HomePage } from '../home/home';

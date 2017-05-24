@@ -12,6 +12,9 @@ import { AlertController } from 'ionic-angular';
 import { AdminPage } from '../admin/admin';
 
 var auth;
+var users;
+var databaseRef;
+var i;
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html',
@@ -21,12 +24,20 @@ export class LoginPage {
 	password="";
 	error: any
   auth: any
+  users=[];
   userProfile: any = null;
   constructor(public toastCtrl: ToastController, public navCtrl: NavController, private service:service, 
     private facebook: Facebook, public plt: Platform,  private googlePlus: GooglePlus, private alertCtrl: AlertController) {
 
+    users=[];
   	var app=service.getApp();
   	auth = app.auth();
+    var database = app.database();
+      databaseRef = database.ref().child("users");
+    databaseRef.on("child_added",function(snapshot){
+      users.push(snapshot);
+     });  
+    this.service.setUsers(users);
 }
 
   googleLogin(): void{ 
@@ -64,6 +75,7 @@ export class LoginPage {
         firebase.auth().signInWithCredential(facebookCredential)
         .then((success) => {
             this.loginComplete();
+            this.setUsername(success.email);
             this.userProfile = success;
             this.navCtrl.push(TabsPage);
         })
@@ -97,6 +109,8 @@ firebase.auth().signInWithPopup(new firebase.auth.TwitterAuthProvider())
   loginUser(){
   	auth.signInWithEmailAndPassword(this.email, this.password)
   	.then((authData) => {
+      console.log("Aqui esta el correo: "+this.email);
+    this.setUsername(this.email);
   	this.loginComplete();
   	this.navCtrl.push(TabsPage);
   	}).catch((_error) => {
@@ -107,9 +121,8 @@ firebase.auth().signInWithPopup(new firebase.auth.TwitterAuthProvider())
     });
     toast.present();
   	})
-    this.service.setUser(this.email);
-  	this.email='';
-    this.password='';
+    
+    
   }
 
   regUser(): void{
@@ -178,6 +191,24 @@ presentPrompt() {
   });
   alert.present();
 }
+
+setUsername(email): void{
+  var cont=this.service.users.length;
+  var username="";
+  for( i= 0; i < cont; i++){
+    var user=this.service.getUsers()[i];
+    if(user.child("email").val()==email){
+      username=user.child("username").val();
+      break;
+    }
+  }
+  this.service.setUser(username);
+  this.email='';
+  this.password='';
+  console.log("Username: "+this.service.getUser());
+}
+
+
  
 
 }

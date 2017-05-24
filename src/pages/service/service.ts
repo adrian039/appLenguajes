@@ -5,7 +5,8 @@ export class service {
  
     app: firebase.app.App; 
      username:string;
-
+     users:any;
+ 
     constructor() {
         this.app=null;
         this.username="";
@@ -26,5 +27,14 @@ export class service {
     getUser() {
         return this.username;
     }   
+
+    setUsers(data){
+        this.users=data;
+    }
+
+    getUsers(){
+        return this.users;
+    }
+   
 }
  
