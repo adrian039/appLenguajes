@@ -21,7 +21,7 @@
 		
 			 <ion-input [(ngModel)]="chat" name="chatText" required placeholder="Message"></ion-input>
 			<button (click)="chatSend()" ion-button  >Send</button>
-			<button ion-button color="light" clear icon-only >
+			<button  (click)="store()" ion-button color="light" clear icon-only >
       <ion-icon name='cloud-upload'></ion-icon>
     </button>
 		</ion-row>

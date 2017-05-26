@@ -36,7 +36,20 @@
         "cordova-plugin-googleplus": {
             "REVERSED_CLIENT_ID": "277425577496-dnlcuktkpo5j1visfb81auev97t625p1.apps.googleusercontent.com",
             "PACKAGE_NAME": "com.ionicframework.myapp745530"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.ionicframework.myapp745530"
+        },
+        "com.megster.cordova.FileChooser": {
+            "PACKAGE_NAME": "com.ionicframework.myapp745530"
+        },
+        "cordova-plugin-filepath": {
+            "PACKAGE_NAME": "com.ionicframework.myapp745530"
         }
     },
-    "dependent_plugins": {}
+    "dependent_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.ionicframework.myapp745530"
+        }
+    }
 }

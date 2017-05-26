@@ -17,10 +17,11 @@ import { LoginPage } from '../pages/login/login';
 import {RegisterPage} from '../pages/register/register';
 import {AdminPage} from '../pages/admin/admin';
 import {SCategoryPage} from '../pages/s-category/s-category';
-
+import { FileChooser } from '@ionic-native/file-chooser';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
+import { File } from '@ionic-native/file';
+import { FilePath } from '@ionic-native/file-path';
 import { Facebook } from '@ionic-native/facebook';
 import { GooglePlus } from '@ionic-native/google-plus';
 
@@ -64,6 +65,9 @@ import { GooglePlus } from '@ionic-native/google-plus';
     SplashScreen,
     Facebook,
     GooglePlus,
+    FileChooser,
+    File,
+    FilePath,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
