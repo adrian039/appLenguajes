@@ -113,13 +113,15 @@ export class AboutPage {
   }
 
   uploadimage() {
+    var fileName;
     (<any>window).resolveLocalFileSystemURL(this.nativepath, (res) => {
+      fileName=res.name;
       res.file((resFile) => {
         var reader = new FileReader();
         reader.readAsArrayBuffer(resFile);
         reader.onloadend = (evt: any) => {
           var imgBlob = new Blob([evt.target.result], { type: 'image/jpeg' });
-          var imageStore = firestore.ref().child('image');
+          var imageStore = firestore.ref().child(fileName);
           imageStore.put(imgBlob).then((res) => {
             alert('Upload Success');
           }).catch((err) => {
