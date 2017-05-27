@@ -8,30 +8,28 @@ import firebase from 'firebase';
 import { service } from '../pages/service/service';
 
 
-
-
 @Component({
   templateUrl: 'app.html',
   providers: [service]
 })
 export class MyApp {
-  rootPage:any = LoginPage;
+  rootPage: any = LoginPage;
 
-  constructor(platform: Platform, private service:service, statusBar: StatusBar, splashScreen: SplashScreen, 
+  constructor(platform: Platform, private service: service, statusBar: StatusBar, splashScreen: SplashScreen,
     public translateService: TranslateService) {
     var config = {
-    apiKey: "AIzaSyDzLzteM80SiCuZXLUptu4BbDLrX7Nmtbo",
-    authDomain: "base-58db2.firebaseapp.com",
-    databaseURL: "https://base-58db2.firebaseio.com",
-    projectId: "base-58db2",
-    storageBucket: "base-58db2.appspot.com",
-    messagingSenderId: "187027053913"
-  };
+      apiKey: "AIzaSyDzLzteM80SiCuZXLUptu4BbDLrX7Nmtbo",
+      authDomain: "base-58db2.firebaseapp.com",
+      databaseURL: "https://base-58db2.firebaseio.com",
+      projectId: "base-58db2",
+      storageBucket: "base-58db2.appspot.com",
+      messagingSenderId: "187027053913"
+    };
     // Get the Firebase app and all primitives we'll use
-  service.setUser('App');
-  var app = firebase.initializeApp(config);
-  translateService.setDefaultLang('en');
-  service.setApp(app);
+    service.setUser('App');
+    var app = firebase.initializeApp(config);
+    translateService.setDefaultLang('en');
+    service.setApp(app);
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
@@ -40,11 +38,11 @@ export class MyApp {
     });
   }
 
-translateToSpanish(){
-  this.translateService.use('es');
-}
- translateToEnglish(){
-  this.translateService.use('en');
-} 
+  translateToSpanish() {
+    this.translateService.use('es');
+  }
+  translateToEnglish() {
+    this.translateService.use('en');
+  }
 
 }

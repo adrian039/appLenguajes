@@ -7,10 +7,30 @@
         "files": {}
     },
     "installed_plugins": {
+        "com.megster.cordova.FileChooser": {
+            "PACKAGE_NAME": "com.ionicframework.myapp745530"
+        },
         "cordova-plugin-console": {
             "PACKAGE_NAME": "com.ionicframework.myapp745530"
         },
         "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.ionicframework.myapp745530"
+        },
+        "cordova-plugin-facebook4": {
+            "APP_ID": "162665337600696",
+            "APP_NAME": "appLenguajesAndroid",
+            "PACKAGE_NAME": "com.ionicframework.myapp745530"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.ionicframework.myapp745530"
+        },
+        "cordova-plugin-filepath": {
+            "PACKAGE_NAME": "com.ionicframework.myapp745530"
+        },
+        "cordova-plugin-googleplus": {
+            "PACKAGE_NAME": "com.ionicframework.myapp745530"
+        },
+        "cordova-plugin-inappbrowser": {
             "PACKAGE_NAME": "com.ionicframework.myapp745530"
         },
         "cordova-plugin-splashscreen": {
@@ -23,26 +43,6 @@
             "PACKAGE_NAME": "com.ionicframework.myapp745530"
         },
         "ionic-plugin-keyboard": {
-            "PACKAGE_NAME": "com.ionicframework.myapp745530"
-        },
-        "cordova-plugin-facebook4": {
-            "APP_ID": "162665337600696",
-            "APP_NAME": "appL­enguajesAndroid",
-            "PACKAGE_NAME": "com.ionicframework.myapp745530"
-        },
-        "cordova-plugin-inappbrowser": {
-            "PACKAGE_NAME": "com.ionicframework.myapp745530"
-        },
-        "cordova-plugin-googleplus": {
-            "PACKAGE_NAME": "com.ionicframework.myapp745530"
-        },
-        "cordova-plugin-file": {
-            "PACKAGE_NAME": "com.ionicframework.myapp745530"
-        },
-        "com.megster.cordova.FileChooser": {
-            "PACKAGE_NAME": "com.ionicframework.myapp745530"
-        },
-        "cordova-plugin-filepath": {
             "PACKAGE_NAME": "com.ionicframework.myapp745530"
         }
     },

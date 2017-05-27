@@ -1,32 +1,32 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Chat
-    </ion-title>
-  </ion-navbar>
-  
+	<ion-navbar>
+		<ion-title>
+			Chat
+		</ion-title>
+	</ion-navbar>
+
 </ion-header>
 
 <ion-content>
 	<ion-list id="list">
-		
+
 	</ion-list>
 </ion-content>
 
 <ion-footer padding>
-<form >
-	<ion-grid>
-	
-		<ion-row>
-		
-			 <ion-input [(ngModel)]="chat" name="chatText" required placeholder="Message"></ion-input>
-			<button (click)="chatSend()" ion-button  >Send</button>
-			<button  (click)="store()" ion-button color="light" clear icon-only >
+	<form>
+		<ion-grid>
+
+			<ion-row>
+
+				<ion-input [(ngModel)]="chat" name="chatText" required placeholder="Message"></ion-input>
+				<button (click)="chatSend()" ion-button>Send</button>
+				<button (click)="store()" ion-button color="light" clear icon-only>
       <ion-icon name='cloud-upload'></ion-icon>
     </button>
-		</ion-row>
-	
-	</ion-grid>
+			</ion-row>
 
-</form>
+		</ion-grid>
+
+	</form>
 </ion-footer>
