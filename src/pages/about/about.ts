@@ -47,21 +47,21 @@ export class AboutPage {
         name.appendChild(document.createTextNode(user1));
         p.appendChild(name);
         li.appendChild(p);
-        if(message.length>60){
-        var xte=message.charAt(message.length-56)+message.charAt(message.length-55)+message.charAt(message.length-54);
+        if (message.length > 60) {
+          var xte = message.charAt(message.length - 56) + message.charAt(message.length - 55) + message.charAt(message.length - 54);
         }
         if (message.indexOf("https://firebasestorage.googleapis.com/") == 0) {
-          if(xte=='mp4'){
-            var video=document.createElement("div");
-            var source=document.createElement("iframe");
+          if (xte == 'mp4') {
+            var video = document.createElement("div");
+            var source = document.createElement("iframe");
             source.setAttribute('src', message);
             source.setAttribute('controls', "controls");
             video.appendChild(source);
             li.appendChild(video);
-          }else {
-          var imgElm = document.createElement("img");
-          imgElm.src = message;
-          li.appendChild(imgElm);
+          } else {
+            var imgElm = document.createElement("img");
+            imgElm.src = message;
+            li.appendChild(imgElm);
           }
         }
         else {
@@ -112,54 +112,54 @@ export class AboutPage {
     var fileName;
     let loader = this.loadingCtrl.create({
       content: "Loading File...",
-     
+
     });
     loader.present();
     (<any>window).resolveLocalFileSystemURL(this.nativepath, (res) => {
       fileName = res.name;
-      var num=this.nativepath.length-1;
-      var exte=this.nativepath.charAt(num-2)+this.nativepath.charAt(num-1)+this.nativepath.charAt(num);
-      if((exte=='jpg')||(exte=='png')||(exte=='peg')){
-      res.file((resFile) => {
-        var reader = new FileReader();
-        reader.readAsArrayBuffer(resFile);
-        reader.onloadend = (evt: any) => {
-          var imgBlob = new Blob([evt.target.result], { type: 'image/jpeg' });
-          var imageStore = firestore.ref('/chatFiles/').child(fileName);
-          imageStore.put(imgBlob).then((res) => {
-            firestore.ref('/chatFiles/').child(fileName).getDownloadURL().then((url) => {
-              this.chat = url;
-              this.chatSend();
-               loader.dismiss();
+      var num = this.nativepath.length - 1;
+      var exte = this.nativepath.charAt(num - 2) + this.nativepath.charAt(num - 1) + this.nativepath.charAt(num);
+      if ((exte == 'jpg') || (exte == 'png') || (exte == 'peg')) {
+        res.file((resFile) => {
+          var reader = new FileReader();
+          reader.readAsArrayBuffer(resFile);
+          reader.onloadend = (evt: any) => {
+            var imgBlob = new Blob([evt.target.result], { type: 'image/jpeg' });
+            var imageStore = firestore.ref('/chatFiles/').child(fileName);
+            imageStore.put(imgBlob).then((res) => {
+              firestore.ref('/chatFiles/').child(fileName).getDownloadURL().then((url) => {
+                this.chat = url;
+                this.chatSend();
+                loader.dismiss();
+              });
+              firestore.ref().child(fileName).getDownloadURL()
+            }).catch((err) => {
+              alert('Upload Failed' + err);
             });
-            firestore.ref().child(fileName).getDownloadURL()
-          }).catch((err) => {
-            alert('Upload Failed' + err);
-          });
 
-        }
-      });
-    }else if((exte=='mp4')||(exte=='avi')){
-      res.file((resFile) => {
-        var reader = new FileReader();
-        reader.readAsArrayBuffer(resFile);
-        reader.onloadend = (evt: any) => {
-          var imgBlob = new Blob([evt.target.result], { type: 'video/mp4' });
-          var imageStore = firestore.ref('/chatFiles/').child(fileName);
-          imageStore.put(imgBlob).then((res) => {
-            firestore.ref('/chatFiles/').child(fileName).getDownloadURL().then((url) => {
-              this.chat = url;
-              this.chatSend();
-               loader.dismiss();
+          }
+        });
+      } else if ((exte == 'mp4') || (exte == 'avi')) {
+        res.file((resFile) => {
+          var reader = new FileReader();
+          reader.readAsArrayBuffer(resFile);
+          reader.onloadend = (evt: any) => {
+            var imgBlob = new Blob([evt.target.result], { type: 'video/mp4' });
+            var imageStore = firestore.ref('/chatFiles/').child(fileName);
+            imageStore.put(imgBlob).then((res) => {
+              firestore.ref('/chatFiles/').child(fileName).getDownloadURL().then((url) => {
+                this.chat = url;
+                this.chatSend();
+                loader.dismiss();
+              });
+              firestore.ref().child(fileName).getDownloadURL()
+            }).catch((err) => {
+              alert('Upload Failed' + err);
             });
-            firestore.ref().child(fileName).getDownloadURL()
-          }).catch((err) => {
-            alert('Upload Failed' + err);
-          });
 
-        }
-      });
-    }
+          }
+        });
+      }
     });
   }
 
