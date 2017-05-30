@@ -1,18 +1,20 @@
-import { Component } from '@angular/core';
-import { Platform } from 'ionic-angular';
+import { Component, ViewChild} from '@angular/core';
+import { Nav, Platform } from 'ionic-angular';
 import { TranslateService } from 'ng2-translate';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { LoginPage } from '../pages/login/login';
 import firebase from 'firebase';
 import { service } from '../pages/service/service';
-
+import {AccountPage} from '../pages/account/account';
+import {TabsPage} from '../pages/tabs/tabs';
 
 @Component({
   templateUrl: 'app.html',
   providers: [service]
 })
 export class MyApp {
+  @ViewChild(Nav) nav:Nav;
   rootPage: any = LoginPage;
 
   constructor(platform: Platform, private service: service, statusBar: StatusBar, splashScreen: SplashScreen,
@@ -43,6 +45,14 @@ export class MyApp {
   }
   translateToEnglish() {
     this.translateService.use('en');
+  }
+
+  openPage(page){
+    if(page=='account'){
+      this.nav.setRoot(AccountPage);
+    }else if(page=='home'){
+      this.nav.setRoot(TabsPage);
+    }
   }
 
 }

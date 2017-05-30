@@ -1,9 +1,40 @@
 <ion-header>
   <ion-navbar>
-    <ion-title> Main</ion-title>
+    <ion-title> Notifications</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  ola k ase
+  <ion-list>
+    <div *ngFor="let data of notifications">
+      <ion-item *ngIf="data.child('user').val()==='admin'" style="border-right: solid 5px blue;">
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <img src="{{data.child('image').val()}}" width="96" height="96" />
+            </ion-col>
+            <ion-col>
+              <h2>{{data.child('title').val()}}</h2>
+              <br>
+              <h3>{{data.child('message').val()}}</h3>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+       <ion-item *ngIf="data.child('user').val()!=='admin'">
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <img src="" width="96" height="96" />
+            </ion-col>
+            <ion-col>
+              <h2> Title</h2>
+              <br>
+              <h3>Message</h3>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+    </div>
+  </ion-list>
 </ion-content>

@@ -2,7 +2,13 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Category</ion-title>
+    <ion-row>
+     <ion-title>Admin              </ion-title>
+
+     <button ion-button color="light" clear icon-only (click)="newNotification()">
+      <ion-icon name='notifications'></ion-icon>
+    </button>
+    </ion-row>
   </ion-navbar>
 </ion-header>
 
@@ -10,7 +16,7 @@
 <ion-content>
 <ion-grid>
   <ion-row>
-    <ion-input [(ngModel)]="category" required placeholder="Add Category"></ion-input>
+    <ion-input [(ngModel)]="category" required placeholder="Add Category" class="selectable"></ion-input>
 			<button ion-button color="light" clear icon-only (click)="addCategory()">
       <ion-icon name='add'></ion-icon>
     </button>

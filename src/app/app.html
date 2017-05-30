@@ -6,8 +6,11 @@
   </ion-header>
   <ion-content>
     <ion-list>
-      <button ion-item (click)="openPage(about)">
-        {{ "CONFIGURATION" | translate }}
+      <button ion-item (click)="openPage('home')">
+        Home
+      </button>
+      <button ion-item (click)="openPage('account')">
+        Account
       </button>
       <button ion-item (click)="openPage(signupPage)">
         {{ "SIGN_UP" | translate }}

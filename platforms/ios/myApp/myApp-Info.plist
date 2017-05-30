@@ -108,5 +108,11 @@
       <string>fbauth2</string>
       <string>fbshareextension</string>
     </array>
+    <key>NSCameraUsageDescription</key>
+    <string></string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string></string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string/>
   </dict>
 </plist>

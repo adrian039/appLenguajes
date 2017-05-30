@@ -107,22 +107,30 @@ export class LoginPage {
   }
 
   loginUser() {
-    auth.signInWithEmailAndPassword(this.email, this.password)
-      .then((authData) => {
-        console.log("Aqui esta el correo: " + this.email);
-        this.setUsername(this.email);
-        this.loginComplete();
-        this.navCtrl.push(TabsPage);
-      }).catch((_error) => {
-        let toast = this.toastCtrl.create({
-          message: 'Wrong email or password :(',
-          duration: 5000,
-          position: 'middle'
-        });
-        toast.present();
-      })
-
-
+    var cont = 0
+    var flag = false;
+    while (cont < this.service.getUsers().length) {
+      var user = this.service.getUsers()[cont].child("email").val();
+      var pass = this.service.getUsers()[cont].child("password").val();
+      if ((this.email == user) && (this.password == pass)) {
+        flag = true;
+        break;
+      } else {
+        cont = cont + 1;
+      }
+    }
+    if (flag) {
+      this.setUsername(this.email);
+      this.loginComplete();
+      this.navCtrl.push(TabsPage);
+    } else {
+      let toast = this.toastCtrl.create({
+        message: 'Wrong email or password :(',
+        duration: 5000,
+        position: 'middle'
+      });
+      toast.present();
+    }
   }
 
   regUser(): void {

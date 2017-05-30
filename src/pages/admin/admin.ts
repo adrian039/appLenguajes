@@ -3,8 +3,10 @@ import { NavController, Content, NavParams } from 'ionic-angular';
 import { service } from '../service/service';
 import { AlertController } from 'ionic-angular';
 import { SCategoryPage } from '../s-category/s-category';
+import { NewNotificationPage } from '../new-notification/new-notification';
 
 var databaseRef;
+var dbref;
 var listaNombres;
 @Component({
   selector: 'page-admin',
@@ -20,6 +22,7 @@ export class AdminPage {
       var database = app.database();
       listaNombres=[];
       databaseRef = database.ref().child("category");
+      dbref=database.ref().child("notifications");
   	databaseRef.on("child_added",function(snapshot){
       listaNombres.push(snapshot);
      });	
@@ -81,6 +84,10 @@ export class AdminPage {
       listaNombres.push(snapshot);
      });	
   	this.listaNombres=listaNombres;
+  }
+
+  newNotification(): void{
+    this.navCtrl.push(NewNotificationPage);
   }
 
  

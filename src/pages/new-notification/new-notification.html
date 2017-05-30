@@ -1,0 +1,33 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>New Notification</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-item>
+    <ion-label floating> Title</ion-label>
+    <ion-input type="text" [(ngModel)]="title" class="selectable"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating> Message</ion-label>
+    <ion-input type="text" [(ngModel)]="message" class="selectable"></ion-input>
+  </ion-item>
+
+  <br>
+  <ion-grid>
+    <ion-row>
+      <img src="{{image}}" width="96" height="96" />
+      <button (click)="getImage()" ion-button color="light" clear icon-only>
+    <ion-icon name='camera'></ion-icon>
+    </button>
+    </ion-row>
+  </ion-grid>
+  <br>
+  <button ion-button (click)="sendNotification()">Send Notification</button>
+
+</ion-content>
