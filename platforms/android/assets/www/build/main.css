@@ -24319,3 +24319,19 @@ ion-navbar.toolbar {
   -ms-user-select: text;
   user-select: text;
 }
+
+.user {
+  display: inline-block;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+.hola {
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}

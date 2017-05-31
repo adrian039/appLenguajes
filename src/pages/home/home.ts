@@ -20,6 +20,7 @@ export class HomePage {
         notifications.push(snapshot);
       });
       this.notifications=notifications;
+      
   }
 
 

@@ -6,7 +6,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { LoginPage } from '../pages/login/login';
 import firebase from 'firebase';
 import { service } from '../pages/service/service';
-import {AccountPage} from '../pages/account/account';
 import {TabsPage} from '../pages/tabs/tabs';
 
 @Component({
@@ -16,7 +15,12 @@ import {TabsPage} from '../pages/tabs/tabs';
 export class MyApp {
   @ViewChild(Nav) nav:Nav;
   rootPage: any = LoginPage;
-
+  name="";
+  username="";
+  email="";
+  phone="";
+  country="";
+  image="";
   constructor(platform: Platform, private service: service, statusBar: StatusBar, splashScreen: SplashScreen,
     public translateService: TranslateService) {
     var config = {
@@ -38,6 +42,8 @@ export class MyApp {
       statusBar.styleDefault();
       splashScreen.hide();
     });
+    console.log('ola k ase');
+
   }
 
   translateToSpanish() {
@@ -48,10 +54,11 @@ export class MyApp {
   }
 
   openPage(page){
-    if(page=='account'){
-      this.nav.setRoot(AccountPage);
-    }else if(page=='home'){
+    if(page=='home'){
       this.nav.setRoot(TabsPage);
+    }else if(page=='logout'){
+      this.service.setUser('App');
+      this.nav.setRoot(LoginPage);
     }
   }
 

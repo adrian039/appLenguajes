@@ -18,7 +18,6 @@ import {RegisterPage} from '../pages/register/register';
 import {AdminPage} from '../pages/admin/admin';
 import {SCategoryPage} from '../pages/s-category/s-category';
 import {NewNotificationPage} from '../pages/new-notification/new-notification';
-import {AccountPage} from '../pages/account/account';
 import { FileChooser } from '@ionic-native/file-chooser';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -42,8 +41,8 @@ import { ImageResizer } from '@ionic-native/image-resizer';
     RegisterPage,
     AdminPage,
     SCategoryPage,
-    NewNotificationPage,
-    AccountPage
+    NewNotificationPage
+    
   ],
   imports: [
     BrowserModule,
@@ -66,8 +65,8 @@ import { ImageResizer } from '@ionic-native/image-resizer';
     RegisterPage,
     AdminPage,
     SCategoryPage,
-    NewNotificationPage,
-    AccountPage
+    NewNotificationPage
+    
   ],
   providers: [
     StatusBar,

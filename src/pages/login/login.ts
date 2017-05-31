@@ -206,6 +206,7 @@ export class LoginPage {
     for (i = 0; i < cont; i++) {
       var user = this.service.getUsers()[i];
       if (user.child("email").val() == email) {
+        this.service.setUserInfo(user);
         username = user.child("username").val();
         break;
       }

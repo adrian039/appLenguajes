@@ -1,11 +1,13 @@
-
 <ion-header>
 
   <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
     <ion-row>
-     <ion-title>Admin              </ion-title>
+      <ion-title>Admin </ion-title>
 
-     <button ion-button color="light" clear icon-only (click)="newNotification()">
+      <button ion-button color="light" clear icon-only (click)="newNotification()">
       <ion-icon name='notifications'></ion-icon>
     </button>
     </ion-row>
@@ -14,27 +16,28 @@
 
 
 <ion-content>
-<ion-grid>
-  <ion-row>
-    <ion-input [(ngModel)]="category" required placeholder="Add Category" class="selectable"></ion-input>
-			<button ion-button color="light" clear icon-only (click)="addCategory()">
+  <ion-grid>
+    <ion-row>
+      <ion-input [(ngModel)]="category" required placeholder="Add Category" class="selectable"></ion-input>
+      <button ion-button color="light" clear icon-only (click)="addCategory()">
       <ion-icon name='add'></ion-icon>
     </button>
     </ion-row>
-    </ion-grid>
-  
- <ion-list>
-  <ion-item-sliding *ngFor="let lista of listaNombres " >
-  	<ion-item>
-    <h2>{{lista.child("name").val()}}</h2>
-    
-    <button ion-button clear item-right (click)="sCategory(lista)">Sub-Category</button>
-    </ion-item>
-    <ion-item-options side="right">
-    	<button ion-button color="light-blue" (click)="editCategory(lista)">
+  </ion-grid>
+
+  <ion-list>
+    <ion-item-sliding *ngFor="let lista of listaNombres ">
+      <ion-item>
+        <h2>{{lista.child("name").val()}}</h2>
+
+        <button ion-button clear item-right (click)="sCategory(lista)">Sub-Category</button>
+      </ion-item>
+      <ion-item-options side="right">
+        <button ion-button color="light-blue" (click)="editCategory(lista)">
     	<ion-icon name="md-create"> EDIT</ion-icon>
     	</button>
-    </ion-item-options>
+      </ion-item-options>
     </ion-item-sliding>
-</ion-list>
+  </ion-list>
 </ion-content>
+<button ion-button secondary menuToggle>Toggle Menu</button>

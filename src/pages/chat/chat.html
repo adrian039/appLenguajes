@@ -1,5 +1,8 @@
 <ion-header>
   <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
     <ion-title>
       Chat
     </ion-title>
@@ -21,11 +24,14 @@
 </ion-item>
   <ion-list>
   <ion-item *ngFor="let listaU of listaUsuarios ">
-   
-    <h2>{{listaU}}</h2>
-    <button ion-button clear item-right (click)="openChat(listaU)">View</button>
+   <ion-avatar item-left>
+      <img src="{{listaU.child('image').val()}}">
+    </ion-avatar>
+    <h2>{{listaU.child('username').val()}}</h2>
+    <button ion-button clear item-right (click)="openChat(listaU.child('username').val())">View</button>
   </ion-item>
 </ion-list>
 
 
 </ion-content>
+<button ion-button secondary menuToggle>Toggle Menu</button>

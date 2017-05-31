@@ -37,9 +37,28 @@ export class ChatPage {
       var name1 = snapshot.child("name1").val();
       var name2 = snapshot.child("name2").val();
       if (currentUser == name1) {
-        listaUsuarios.push(name2);
+        var cont = 0;
+        var tam = service.getUsers().length;
+        while (cont < tam) {
+          if (service.getUsers()[cont].child('username').val() == name2) {
+            listaUsuarios.push(service.getUsers()[cont]);
+            break;
+          } else {
+            cont = cont + 1;
+          }
+        }
       } else if (currentUser == name2) {
-        listaUsuarios.push(name1);
+
+        var cont = 0;
+        var tam = service.getUsers().length;
+        while (cont < tam) {
+          if (service.getUsers()[cont].child('username').val() == name1) {
+            listaUsuarios.push(service.getUsers()[cont]);
+            break;
+          } else {
+            cont = cont + 1;
+          }
+        }
       }
     });
     this.listaNombres = listaNombres;
@@ -53,5 +72,19 @@ export class ChatPage {
     var data = { name1: this.service.getUser(), name2: name };
     databaseRef1.push().set(data);
   }
+
+  getImage(name) {
+    var cont = 0;
+    var tam = this.service.getUsers().length;
+    while (cont < tam) {
+      if (this.service.getUsers()[cont].child('username').val() == name) {
+        alert(this.service.getUsers()[cont])
+        return this.service.getUsers()[cont];
+      } else {
+        cont = cont + 1;
+      }
+    }
+  }
+
 
 }
