@@ -18,19 +18,20 @@
 
 <ion-footer padding>
 	<form>
+		<ion-fab right bottom>
+			<button ion-fab color="blue" (click)="chatSend()"><ion-icon name="send"></ion-icon></button>
+		</ion-fab>
 		<ion-grid>
-
 			<ion-row>
-
 				<ion-input [(ngModel)]="chat" name="chatText" style="color:white;" required placeholder="Message" class="selectable"></ion-input>
-				<button (click)="chatSend()" ion-button>Send</button>
+				<button (click)="store()" ion-button color="light" clear icon-only>
+      <ion-icon name='cloud-upload'></ion-icon>
+    </button>
 				<button (click)="store()" ion-button color="light" clear icon-only>
       <ion-icon name='cloud-upload'></ion-icon>
     </button>
 			</ion-row>
-
 		</ion-grid>
-
 	</form>
 </ion-footer>
 <button ion-button secondary menuToggle>Toggle Menu</button>

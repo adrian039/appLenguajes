@@ -14,6 +14,7 @@ var listaNombres;
 })
 export class AdminPage {
 	category="";
+  categories="";
 	listaNombres=[];
 @ViewChild(Content) content: Content;
   constructor(public navCtrl: NavController, public navParams: NavParams, private service:service,
@@ -30,7 +31,7 @@ export class AdminPage {
   }
 
   addCategory(): void{
-  	var data = { name: this.category}
+  	var data = { name: this.category, icon: this.categories}
     databaseRef.push().set(data);
     this.category = '';
   }

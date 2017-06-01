@@ -14,6 +14,7 @@ var par;
 export class SCategoryPage {
 	par1="";
 	category="";
+  categories="";
 	listaNombres=[];
   constructor(public navCtrl: NavController, public navParams: NavParams, private service:service,
    private alertCtrl: AlertController) {
@@ -34,7 +35,7 @@ export class SCategoryPage {
   }
 
   addCategory(): void{
-  	var data = { name: this.category, origin: this.par1}
+  	var data = { name: this.category, origin: this.par1, icon: this.categories}
     databaseRef.push().set(data);
     this.category = '';
   }

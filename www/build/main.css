@@ -24328,10 +24328,16 @@ ion-navbar.toolbar {
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
+  margin-top: 10px;
+  margin-bottom: 8px;
+  margin-right: 110px;
+  margin-left: 100px;
 }
 
-.hola {
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+.texto {
+  margin-top: 9px;
+  margin-bottom: 5px;
+  margin-right: 50px;
+  margin-left: 10px;
+  color: white;
 }

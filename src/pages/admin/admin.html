@@ -6,38 +6,79 @@
     </button>
     <ion-row>
       <ion-title>Admin </ion-title>
-
-      <button ion-button color="light" clear icon-only (click)="newNotification()">
-      <ion-icon name='notifications'></ion-icon>
-    </button>
     </ion-row>
   </ion-navbar>
 </ion-header>
 
 
 <ion-content>
+  <ion-fab right bottom>
+    <button ion-fab color="blue" (click)="newNotification()"><ion-icon name="notifications"></ion-icon></button>
+  </ion-fab>
   <ion-grid>
     <ion-row>
-      <ion-input [(ngModel)]="category" required placeholder="Add Category" class="selectable"></ion-input>
+
+      <ion-select [(ngModel)]="categories" placeholder="Icon">
+        <ion-option value="alarm">alarm</ion-option>
+        <ion-option value="american-football">american-football</ion-option>
+        <ion-option value="android">android</ion-option>
+        <ion-option value="apple">apple</ion-option>
+        <ion-option value="archive">archive</ion-option>
+        <ion-option value="color-palette">art</ion-option>
+        <ion-option value="attach">attach</ion-option>
+        <ion-option value="baseball">baseball</ion-option>
+        <ion-option value="basket">basket</ion-option>
+        <ion-option value="book">book</ion-option>
+        <ion-option value="bookmarks">bookmarks</ion-option>
+        <ion-option value="briefcase">briefcase</ion-option>
+        <ion-option value="brush">brush</ion-option>
+        <ion-option value="build">build</ion-option>
+        <ion-option value="bulb">bulb</ion-option>
+        <ion-option value="bus">bus</ion-option>
+        <ion-option value="calculator">calculator</ion-option>
+        <ion-option value="call">call</ion-option>
+        <ion-option value="camera">camera</ion-option>
+        <ion-option value="car">car</ion-option>
+        <ion-option value="cart">cart</ion-option>
+        <ion-option value="card">card</ion-option>
+        <ion-option value="chatboxes">chatboxes</ion-option>
+        <ion-option value="code">code</ion-option>
+        <ion-option value="construct">construct</ion-option>
+        <ion-option value="cut">cut</ion-option>
+        <ion-option value="film">film</ion-option>
+        <ion-option value="pizza">food</ion-option>
+        <ion-option value="flask">chemistry</ion-option>
+        <ion-option value="football">football</ion-option>
+        <ion-option value="game-controller-b">video games</ion-option>
+        <ion-option value="hammer">hammer</ion-option>
+        <ion-option value="laptop">computer</ion-option>
+        <ion-option value="medkit">medical</ion-option>
+        <ion-option value="musical-notes">music</ion-option>
+        <ion-option value="globe">world</ion-option>
+      </ion-select>
+      <ion-input [(ngModel)]="category" required placeholder="Category Name" class="selectable"></ion-input>
       <button ion-button color="light" clear icon-only (click)="addCategory()">
       <ion-icon name='add'></ion-icon>
     </button>
     </ion-row>
   </ion-grid>
-
-  <ion-list>
-    <ion-item-sliding *ngFor="let lista of listaNombres ">
-      <ion-item>
-        <h2>{{lista.child("name").val()}}</h2>
-
-        <button ion-button clear item-right (click)="sCategory(lista)">Sub-Category</button>
-      </ion-item>
-      <ion-item-options side="right">
-        <button ion-button color="light-blue" (click)="editCategory(lista)">
+  <ion-card>
+    <ion-list>
+      <ion-item-sliding *ngFor="let lista of listaNombres">
+        <ion-item>
+          <ion-icon name="{{lista.child('icon').val()}}" item-left></ion-icon>
+          <h2 style="color:white;"> {{lista.child("name").val()}}</h2>
+          <button ion-button clear item-right (click)="sCategory(lista)">Sub-Category</button>
+        </ion-item>
+        <ion-item-options side="right">
+          <button ion-button color="light-blue" (click)="editCategory(lista)">
     	<ion-icon name="md-create"> EDIT</ion-icon>
     	</button>
-      </ion-item-options>
-    </ion-item-sliding>
-  </ion-list>
+        </ion-item-options>
+
+      </ion-item-sliding>
+
+    </ion-list>
+  </ion-card>
 </ion-content>
 <button ion-button secondary menuToggle>Toggle Menu</button>
