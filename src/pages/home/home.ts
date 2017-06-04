@@ -17,7 +17,9 @@ export class HomePage {
       notifications=[];
       databaseRef=database.ref().child("notifications");
       databaseRef.on("child_added", function (snapshot) {
-        notifications.push(snapshot);
+        if(snapshot.child('state').val()=='active'){
+           notifications.push(snapshot);
+        }
       });
       this.notifications=notifications;
       

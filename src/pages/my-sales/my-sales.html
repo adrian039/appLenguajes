@@ -1,0 +1,53 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>New Sale</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card>
+    <ion-list inset>
+
+
+      <ion-item>
+        <ion-label floating> Autor</ion-label>
+        <ion-input type="text" [(ngModel)]="autor" class="selectable"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Name</ion-label>
+        <ion-input type="text" [(ngModel)]="name" class="selectable"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating> Language</ion-label>
+        <ion-input type="text" [(ngModel)]="language" class="selectable"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating> Price</ion-label>
+        <ion-input type="text" [(ngModel)]="price" class="selectable"></ion-input>
+      </ion-item>
+      <ion-item class="topborder">
+          <h2 style="color:white"> {{service.category}}</h2>
+          <button ion-button clear item-right (click)="selectCat('category')">Select</button>
+     </ion-item>
+      <ion-item>
+          <h2 style="color:white"> {{service.subCategory}}</h2>
+          <button ion-button clear item-right (click)="selectCat('subCategory')">Select</button>
+     </ion-item>
+    </ion-list>
+  </ion-card>
+  <ion-grid>
+    <ion-row>
+
+      <div class="mardiv"> <img button src="{{image1}}" width="96" height="96" (click)="takePhoto('image1')" /> </div>
+      <div class="mardiv"> <img button src="{{image2}}" width="96" height="96" (click)="takePhoto('image2')" /> </div>
+      <div class="mardiv"> <img button src="{{image3}}" width="96" height="96" (click)="takePhoto('image3')" /> </div>
+
+    </ion-row>
+  </ion-grid>
+  <button ion-button (click)="sell()">Sell Book </button>
+
+</ion-content>

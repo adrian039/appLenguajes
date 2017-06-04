@@ -33,49 +33,6 @@ export class AboutPage {
     var auth = app.auth();
     firestore = app.storage();
     databaseRef = database.ref().child("chatMessages");
-    databaseRef.on("child_added", function (snapshot) {
-      var message = snapshot.child("message").val();
-      var user1 = snapshot.child("origin").val();
-      var user2 = snapshot.child("target").val();
-      if (((user1 == name1) && (user2 == currentUser)) || ((user1 == currentUser) && (user2 == name1))) {
-        var listIon = document.getElementById("list");
-        var div = document.createElement("div");
-        var li = document.createElement("ion-item");
-        var p = document.createElement("p");
-        p.setAttribute('class', 'chat-text');
-        var name = document.createElement("strong");
-        name.appendChild(document.createTextNode(user1));
-        p.appendChild(name);
-        li.appendChild(p);
-        if (message.length > 60) {
-          var xte = message.charAt(message.length - 56) + message.charAt(message.length - 55) + message.charAt(message.length - 54);
-        }
-        if (message.indexOf("https://firebasestorage.googleapis.com/") == 0) {
-          if (xte == 'mp4') {
-            var video = document.createElement("div");
-            var source = document.createElement("iframe");
-            source.setAttribute('src', message);
-            source.setAttribute('controls', "controls");
-            video.appendChild(source);
-            li.appendChild(video);
-          } else {
-            var imgElm = document.createElement("img");
-            imgElm.src = message;
-            li.appendChild(imgElm);
-          }
-        }
-        else {
-
-          p.appendChild(document.createTextNode(": " + message));
-          li.appendChild(p);
-
-        }
-        listIon.appendChild(div);
-        div.appendChild(li);
-      }
-
-
-    });
     auth.onAuthStateChanged(function (user) {
       if (user.displayName != null) {
         username = user.displayName;
@@ -163,6 +120,50 @@ export class AboutPage {
     });
   }
 
+ionViewDidLoad(){
+    databaseRef.on("child_added", function (snapshot) {
+      var message = snapshot.child("message").val();
+      var user1 = snapshot.child("origin").val();
+      var user2 = snapshot.child("target").val();
+      if (((user1 == name1) && (user2 == currentUser)) || ((user1 == currentUser) && (user2 == name1))) {
+        var listIon = document.getElementById("list");
+        var div = document.createElement("div");
+        var li = document.createElement("ion-item");
+        var p = document.createElement("p");
+        p.setAttribute('class', 'chat-text');
+        var name = document.createElement("strong");
+        name.appendChild(document.createTextNode(user1));
+        p.appendChild(name);
+        li.appendChild(p);
+        if (message.length > 60) {
+          var xte = message.charAt(message.length - 56) + message.charAt(message.length - 55) + message.charAt(message.length - 54);
+        }
+        if (message.indexOf("https://firebasestorage.googleapis.com/") == 0) {
+          if (xte == 'mp4') {
+            var video = document.createElement("div");
+            var source = document.createElement("iframe");
+            source.setAttribute('src', message);
+            source.setAttribute('controls', "controls");
+            video.appendChild(source);
+            li.appendChild(video);
+          } else {
+            var imgElm = document.createElement("img");
+            imgElm.src = message;
+            li.appendChild(imgElm);
+          }
+        }
+        else {
 
+          p.appendChild(document.createTextNode(": " + message));
+          li.appendChild(p);
+
+        }
+        listIon.appendChild(div);
+        div.appendChild(li);
+      }
+
+
+    });
+}
 
 }

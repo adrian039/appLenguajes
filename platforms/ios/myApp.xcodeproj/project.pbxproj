@@ -50,6 +50,8 @@
 		5A1628BCC9EC40BF8002620E /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16E46C079AB94DB59C34598A /* ImageIO.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		E3BF6F6CA3654E63930908F1 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2D5919CF5CC44E2BA079885 /* CoreLocation.framework */; };
 		694267998F7F4BADB5DF06AD /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6FABDC5F8C64D7D9A6B4DD2 /* AVFoundation.framework */; };
+		1E00F000DDCE4A10B080B717 /* CDVLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CFA714B7943419489915357 /* CDVLocation.m */; };
+		A140CEC2ECC94A4D96396659 /* PhotoViewer.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF710BD4CFB4AB8948FACB4 /* PhotoViewer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -144,6 +146,9 @@
 		16E46C079AB94DB59C34598A /* ImageIO.framework */ = {isa = PBXFileReference; name = "ImageIO.framework"; path = "System/Library/Frameworks/ImageIO.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
 		A2D5919CF5CC44E2BA079885 /* CoreLocation.framework */ = {isa = PBXFileReference; name = "CoreLocation.framework"; path = "System/Library/Frameworks/CoreLocation.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
 		C6FABDC5F8C64D7D9A6B4DD2 /* AVFoundation.framework */ = {isa = PBXFileReference; name = "AVFoundation.framework"; path = "System/Library/Frameworks/AVFoundation.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		0CFA714B7943419489915357 /* CDVLocation.m */ = {isa = PBXFileReference; name = "CDVLocation.m"; path = "cordova-plugin-geolocation/CDVLocation.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		DB079803EC3E4B94AF2F78C5 /* CDVLocation.h */ = {isa = PBXFileReference; name = "CDVLocation.h"; path = "cordova-plugin-geolocation/CDVLocation.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		BFF710BD4CFB4AB8948FACB4 /* PhotoViewer.m */ = {isa = PBXFileReference; name = "PhotoViewer.m"; path = "com-sarriaroman-photoviewer/PhotoViewer.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -321,6 +326,9 @@
 				F50E1726D2C143899D56FC53 /* CDVCamera.h */,
 				1E7B349DED0744DC9DC3C449 /* CDVJpegHeaderWriter.h */,
 				270C7BCE6AA0419E835737FF /* CDVExif.h */,
+				0CFA714B7943419489915357 /* CDVLocation.m */,
+				DB079803EC3E4B94AF2F78C5 /* CDVLocation.h */,
+				BFF710BD4CFB4AB8948FACB4 /* PhotoViewer.m */,
 			);
 			name = Plugins;
 			path = myApp/Plugins;
@@ -458,6 +466,8 @@
 				FE6C94DBF93B4CC6AF8D955D /* UIImage+CropScaleOrientation.m in Sources */,
 				671F729517344AD69D83B50C /* CDVCamera.m in Sources */,
 				4029C5045FE44AE5BA6C6CD2 /* CDVJpegHeaderWriter.m in Sources */,
+				1E00F000DDCE4A10B080B717 /* CDVLocation.m in Sources */,
+				A140CEC2ECC94A4D96396659 /* PhotoViewer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

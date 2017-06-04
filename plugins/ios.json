@@ -53,6 +53,13 @@
             "CAMERA_USAGE_DESCRIPTION": " ",
             "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
             "PACKAGE_NAME": "com.ionicframework.myapp745530"
+        },
+        "cordova-plugin-geolocation": {
+            "GEOLOCATION_USAGE_DESCRIPTION": " ",
+            "PACKAGE_NAME": "com.ionicframework.myapp745530"
+        },
+        "com-sarriaroman-photoviewer": {
+            "PACKAGE_NAME": "com.ionicframework.myapp745530"
         }
     },
     "dependent_plugins": {

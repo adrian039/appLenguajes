@@ -21,13 +21,73 @@
   <br>
   <ion-grid>
     <ion-row>
-      <img src="{{image}}" width="96" height="96" />
-      <button (click)="getImage()" ion-button color="light" clear icon-only>
+      <ion-col>
+        <ion-row>
+          <img src="{{image}}" width="96" height="96" />
+          <button (click)="getImage()" ion-button color="light" clear icon-only>
     <ion-icon name='camera'></ion-icon>
     </button>
+        </ion-row>
+      </ion-col>
+      <br>
+      <ion-col>
+        <button ion-button (click)="sendNotification()">Send Notification</button>
+      </ion-col>
     </ion-row>
   </ion-grid>
   <br>
-  <button ion-button (click)="sendNotification()">Send Notification</button>
-
+  <br>
+  <h4 style="color:white">Notifications Created</h4>
+  <ion-card>
+    <ion-list *ngFor="let data of notifications">
+      <ion-item-sliding *ngIf="data.child('state').val()==='active'">
+        <ion-item>
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <img src="{{data.child('image').val()}}" width="96" height="96" />
+              </ion-col>
+              <ion-col>
+                <h2 style="color:white;"><strong>{{data.child('title').val()}}</strong></h2>
+                <br>
+                <h3 style="color:white;">{{data.child('message').val()}}</h3>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-item>
+        <ion-item-options side="right">
+          <button ion-button color="light-blue" (click)="lockNot(data, 'lock')">
+    LOCK
+    	</button>
+          <button ion-button color="danger" (click)="deleteNot(data)">
+    DELETE
+    	</button>
+        </ion-item-options>
+      </ion-item-sliding>
+      <ion-item-sliding *ngIf="data.child('state').val()!=='active'">
+        <ion-item>
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <img src="{{data.child('image').val()}}" width="96" height="96" />
+              </ion-col>
+              <ion-col>
+                <h2 style="color:white;"><strong>{{data.child('title').val()}}</strong></h2>
+                <br>
+                <h3 style="color:white;">{{data.child('message').val()}}</h3>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+          </ion-item>          
+          <ion-item-options side="right">
+            <button ion-button color="light-blue" (click)="lockNot(data, 'active')">
+    ACTIVE
+    	</button>
+          <button ion-button color="danger" (click)="deleteNot(data)">
+    DELETE
+    	</button>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+  </ion-card>
 </ion-content>

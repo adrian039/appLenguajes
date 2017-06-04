@@ -294,6 +294,46 @@ module.exports = [
         "clobbers": [
             "CameraPopoverHandle"
         ]
+    },
+    {
+        "id": "cordova-plugin-geolocation.Coordinates",
+        "file": "plugins/cordova-plugin-geolocation/www/Coordinates.js",
+        "pluginId": "cordova-plugin-geolocation",
+        "clobbers": [
+            "Coordinates"
+        ]
+    },
+    {
+        "id": "cordova-plugin-geolocation.PositionError",
+        "file": "plugins/cordova-plugin-geolocation/www/PositionError.js",
+        "pluginId": "cordova-plugin-geolocation",
+        "clobbers": [
+            "PositionError"
+        ]
+    },
+    {
+        "id": "cordova-plugin-geolocation.Position",
+        "file": "plugins/cordova-plugin-geolocation/www/Position.js",
+        "pluginId": "cordova-plugin-geolocation",
+        "clobbers": [
+            "Position"
+        ]
+    },
+    {
+        "id": "cordova-plugin-geolocation.geolocation",
+        "file": "plugins/cordova-plugin-geolocation/www/geolocation.js",
+        "pluginId": "cordova-plugin-geolocation",
+        "clobbers": [
+            "navigator.geolocation"
+        ]
+    },
+    {
+        "id": "com-sarriaroman-photoviewer.PhotoViewer",
+        "file": "plugins/com-sarriaroman-photoviewer/www/PhotoViewer.js",
+        "pluginId": "com-sarriaroman-photoviewer",
+        "clobbers": [
+            "PhotoViewer"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -313,7 +353,9 @@ module.exports.metadata =
     "com.megster.cordova.FileChooser": "0.0.0",
     "cordova-plugin-filepath": "1.0.2",
     "info.protonet.imageresizer": "0.1.1",
-    "cordova-plugin-camera": "2.4.1"
+    "cordova-plugin-camera": "2.4.1",
+    "cordova-plugin-geolocation": "2.4.3",
+    "com-sarriaroman-photoviewer": "1.1.10"
 };
 // BOTTOM OF METADATA
 });

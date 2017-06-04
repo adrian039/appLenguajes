@@ -1,0 +1,22 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title *ngIf="type==='category'">Categories</ion-title>
+    <ion-title *ngIf="type==='subCategory'">Sub Categories</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+  <ion-card >
+ <ion-list *ngFor="let lista of dataList">
+  <button ion-item (click)="select(lista)">
+        <ion-icon name='{{lista.child("icon").val()}}' item-left></ion-icon>
+        <ion-icon name='add' item-right></ion-icon>
+        {{lista.child('name').val()}}
+      </button>
+ </ion-list>
+  </ion-card>
+</ion-content>

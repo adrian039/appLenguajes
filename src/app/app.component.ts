@@ -7,6 +7,7 @@ import { LoginPage } from '../pages/login/login';
 import firebase from 'firebase';
 import { service } from '../pages/service/service';
 import {TabsPage} from '../pages/tabs/tabs';
+import {SettingsPage} from '../pages/settings/settings';
 
 @Component({
   templateUrl: 'app.html',
@@ -59,6 +60,8 @@ export class MyApp {
     }else if(page=='logout'){
       this.service.setUser('App');
       this.nav.setRoot(LoginPage);
+    }else if(page=='settings'){
+       this.nav.setRoot(SettingsPage);
     }
   }
 

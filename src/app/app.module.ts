@@ -18,6 +18,9 @@ import {RegisterPage} from '../pages/register/register';
 import {AdminPage} from '../pages/admin/admin';
 import {SCategoryPage} from '../pages/s-category/s-category';
 import {NewNotificationPage} from '../pages/new-notification/new-notification';
+import {MySalesPage} from '../pages/my-sales/my-sales';
+import {CategoryPage} from '../pages/category/category';
+import {SettingsPage} from '../pages/settings/settings';
 import { FileChooser } from '@ionic-native/file-chooser';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -27,6 +30,8 @@ import { Facebook } from '@ionic-native/facebook';
 import { GooglePlus } from '@ionic-native/google-plus';
 import { Camera } from '@ionic-native/camera';
 import { ImageResizer } from '@ionic-native/image-resizer';
+import { Geolocation } from '@ionic-native/geolocation';
+import { PhotoViewer } from '@ionic-native/photo-viewer';
 
 
 @NgModule({
@@ -41,7 +46,10 @@ import { ImageResizer } from '@ionic-native/image-resizer';
     RegisterPage,
     AdminPage,
     SCategoryPage,
-    NewNotificationPage
+    NewNotificationPage,
+    MySalesPage,
+    CategoryPage,
+    SettingsPage
     
   ],
   imports: [
@@ -65,7 +73,10 @@ import { ImageResizer } from '@ionic-native/image-resizer';
     RegisterPage,
     AdminPage,
     SCategoryPage,
-    NewNotificationPage
+    NewNotificationPage,
+    MySalesPage,
+    CategoryPage,
+    SettingsPage
     
   ],
   providers: [
@@ -78,6 +89,8 @@ import { ImageResizer } from '@ionic-native/image-resizer';
     FilePath,
     Camera, 
     ImageResizer,
+    Geolocation,
+    PhotoViewer,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

@@ -91,6 +91,14 @@
                         {
                             "xml": "<preference name=\"CameraUsesGeolocation\" value=\"false\" />",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Geolocation\"><param name=\"ios-package\" value=\"CDVLocation\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"PhotoViewer\"><param name=\"ios-package\" value=\"PhotoViewer\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -147,6 +155,10 @@
                         {
                             "xml": "<string />",
                             "count": 1
+                        },
+                        {
+                            "xml": "<string> </string>",
+                            "count": 1
                         }
                     ]
                 }
@@ -202,6 +214,13 @@
         "cordova-plugin-camera": {
             "CAMERA_USAGE_DESCRIPTION": " ",
             "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
+            "PACKAGE_NAME": "com.ionicframework.myapp745530"
+        },
+        "cordova-plugin-geolocation": {
+            "GEOLOCATION_USAGE_DESCRIPTION": " ",
+            "PACKAGE_NAME": "com.ionicframework.myapp745530"
+        },
+        "com-sarriaroman-photoviewer": {
             "PACKAGE_NAME": "com.ionicframework.myapp745530"
         }
     },
@@ -501,6 +520,46 @@
             "clobbers": [
                 "CameraPopoverHandle"
             ]
+        },
+        {
+            "id": "cordova-plugin-geolocation.Coordinates",
+            "file": "plugins/cordova-plugin-geolocation/www/Coordinates.js",
+            "pluginId": "cordova-plugin-geolocation",
+            "clobbers": [
+                "Coordinates"
+            ]
+        },
+        {
+            "id": "cordova-plugin-geolocation.PositionError",
+            "file": "plugins/cordova-plugin-geolocation/www/PositionError.js",
+            "pluginId": "cordova-plugin-geolocation",
+            "clobbers": [
+                "PositionError"
+            ]
+        },
+        {
+            "id": "cordova-plugin-geolocation.Position",
+            "file": "plugins/cordova-plugin-geolocation/www/Position.js",
+            "pluginId": "cordova-plugin-geolocation",
+            "clobbers": [
+                "Position"
+            ]
+        },
+        {
+            "id": "cordova-plugin-geolocation.geolocation",
+            "file": "plugins/cordova-plugin-geolocation/www/geolocation.js",
+            "pluginId": "cordova-plugin-geolocation",
+            "clobbers": [
+                "navigator.geolocation"
+            ]
+        },
+        {
+            "id": "com-sarriaroman-photoviewer.PhotoViewer",
+            "file": "plugins/com-sarriaroman-photoviewer/www/PhotoViewer.js",
+            "pluginId": "com-sarriaroman-photoviewer",
+            "clobbers": [
+                "PhotoViewer"
+            ]
         }
     ],
     "plugin_metadata": {
@@ -518,6 +577,8 @@
         "com.megster.cordova.FileChooser": "0.0.0",
         "cordova-plugin-filepath": "1.0.2",
         "info.protonet.imageresizer": "0.1.1",
-        "cordova-plugin-camera": "2.4.1"
+        "cordova-plugin-camera": "2.4.1",
+        "cordova-plugin-geolocation": "2.4.3",
+        "com-sarriaroman-photoviewer": "1.1.10"
     }
 }

@@ -13,6 +13,8 @@ export class service {
     phone: any;
     userinfo: any;
     image: any;
+    category: any;
+    subCategory: any;
 
     constructor() {
         this.app = null;
@@ -24,6 +26,8 @@ export class service {
         this.phone = "";
         this.image = "";
         this.userinfo = [];
+        this.category='Category';
+        this.subCategory='SubCategory';
     }
 
     setApp(app) {

@@ -8,6 +8,7 @@ import { LoadingController } from 'ionic-angular';
 
 var databaseRef;
 var firestore;
+var notifications;
 @Component({
   selector: 'page-new-notification',
   templateUrl: 'new-notification.html',
@@ -16,12 +17,21 @@ export class NewNotificationPage {
   image = "";
   title = "";
   message = "";
+  notifications = [];
   constructor(public navCtrl: NavController, public navParams: NavParams, private filechooser: FileChooser,
     private filePath: FilePath, private imageResizer: ImageResizer, private service: service, public loadingCtrl: LoadingController) {
     var app = service.getApp();
     var database = app.database();
+    notifications = [];
     firestore = app.storage();
     databaseRef = database.ref().child("notifications");
+    databaseRef.on("child_added", function (snapshot) {
+      var user = snapshot.child('user').val();
+      if (user == 'admin') {
+        notifications.push(snapshot);
+      }
+    });
+    this.notifications = notifications;
   }
 
   getImage(): void {
@@ -31,7 +41,7 @@ export class NewNotificationPage {
         let options = {
           uri: path,
           folderName: 'appBookImages',
-          quality: 100,
+          quality: 90,
           width: 1000,
           height: 1000
         } as ImageResizerOptions;
@@ -63,7 +73,7 @@ export class NewNotificationPage {
           var imageStore = firestore.ref('/notificationImages/').child(fileName);
           imageStore.put(imgBlob).then((res) => {
             firestore.ref('/notificationImages/').child(fileName).getDownloadURL().then((url) => {
-              var data = { user: 'admin', title: this.title, message: this.message, image: url }
+              var data = { user: 'admin', title: this.title, message: this.message, image: url, state: 'active' }
               databaseRef.push().set(data);
               loader.dismiss();
               alert('Notification has been created :)');
@@ -80,6 +90,18 @@ export class NewNotificationPage {
         }
       });
     });
+  }
+
+  deleteNot(data): void {
+    databaseRef.child(data.key).remove();
+  }
+
+  lockNot(data, cond): void {
+    if (cond == 'lock') {
+      databaseRef.child(data.key).update({ "/state": 'lock' });
+    } else {
+      databaseRef.child(data.key).update({ "/state": 'active' });
+    }
   }
 
 }

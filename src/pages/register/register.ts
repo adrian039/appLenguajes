@@ -158,7 +158,7 @@ export class RegisterPage {
         let options = {
           uri: path,
           folderName: 'appBookImages',
-          quality: 100,
+          quality: 90,
           width: 1000,
           height: 1000
         } as ImageResizerOptions;
