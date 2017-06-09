@@ -60,7 +60,7 @@ export class MySalesPage {
       var data = {
         user: this.service.getUser(), name: this.name, autor: this.autor, language: this.language, price: this.price,
         latitude: resp.coords.latitude, longitude: resp.coords.longitude, image1: this.image1, image2: this.image2,
-        image3: this.image3, state: 'active', category: cat, subCategory: scat
+        image3: this.image3, state: 'active', category: cat, subCategory: scat, country: this.service.getUserInfo().child("country").val()
       };
       databaseRef.push().set(data);
       this.name = "";

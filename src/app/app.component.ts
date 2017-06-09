@@ -2,13 +2,15 @@ import { Component, ViewChild} from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { TranslateService } from 'ng2-translate';
 import { StatusBar } from '@ionic-native/status-bar';
+import { AlertController } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { LoginPage } from '../pages/login/login';
 import firebase from 'firebase';
 import { service } from '../pages/service/service';
 import {TabsPage} from '../pages/tabs/tabs';
-import {SettingsPage} from '../pages/settings/settings';
+import {FiltersPage} from '../pages/filters/filters';
 
+var databaseRef;
 @Component({
   templateUrl: 'app.html',
   providers: [service]
@@ -23,7 +25,7 @@ export class MyApp {
   country="";
   image="";
   constructor(platform: Platform, private service: service, statusBar: StatusBar, splashScreen: SplashScreen,
-    public translateService: TranslateService) {
+    public translateService: TranslateService, private alertCtrl: AlertController) {
     var config = {
       apiKey: "AIzaSyDzLzteM80SiCuZXLUptu4BbDLrX7Nmtbo",
       authDomain: "base-58db2.firebaseapp.com",
@@ -43,7 +45,9 @@ export class MyApp {
       statusBar.styleDefault();
       splashScreen.hide();
     });
-    console.log('ola k ase');
+   var app1 = service.getApp();
+   var database = app1.database();
+   databaseRef = database.ref().child("users");
 
   }
 
@@ -60,9 +64,41 @@ export class MyApp {
     }else if(page=='logout'){
       this.service.setUser('App');
       this.nav.setRoot(LoginPage);
-    }else if(page=='settings'){
-       this.nav.setRoot(SettingsPage);
+    }else if(page=='filters'){
+      this.nav.setRoot(FiltersPage);
     }
+  }
+
+  presentPrompt() {
+    let alert = this.alertCtrl.create({
+      title: 'Notification Manager',
+      message: 'How many notifications to show?',
+      inputs: [
+
+        {
+          name: 'quantity',
+          placeholder: 'Quantity',
+          type: 'text'
+        }
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: data => {
+            //console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Save',
+          handler: data => {
+            var user= this.service.getUserInfo();
+            databaseRef.child(user.key).update({ "/notifications": data.quantity });
+          }
+        }
+      ]
+    });
+    alert.present();
   }
 
 }

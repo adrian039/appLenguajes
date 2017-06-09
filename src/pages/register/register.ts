@@ -96,7 +96,7 @@ export class RegisterPage {
             firestore.ref('/usersPhotos/').child(fileName).getDownloadURL().then((url) => {
               var data = {
                 name: this.name, email: this.email, username: this.username, password: this.password,
-                address: this.address, country: this.country, phone: this.phone, image: url
+                address: this.address, country: this.country, phone: this.phone, image: url, notifications: 0
               };
               try {
                 loader.dismiss();

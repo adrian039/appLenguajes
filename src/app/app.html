@@ -27,9 +27,13 @@
           <ion-icon name='log-out' item-left></ion-icon>
         Log Out
       </button>
-      <button ion-item class="topborder" (click)="openPage('settings')">
+      <button ion-item class="topborder" (click)="openPage('filters')">
+          <ion-icon name='notifications' item-left></ion-icon>
+        Notification Filters
+      </button>
+      <button ion-item  (click)="presentPrompt()">
           <ion-icon name='settings' item-left></ion-icon>
-       Account Settings
+        Preferences
       </button>
       </ion-list>
     </ion-card>

@@ -10,11 +10,14 @@ import { TabsPage } from '../tabs/tabs';
 import { RegisterPage } from '../register/register';
 import { AlertController } from 'ionic-angular';
 import { AdminPage } from '../admin/admin';
+import { Geolocation } from '@ionic-native/geolocation';
 
 var auth;
 var users;
 var databaseRef;
+var databaseRef1;
 var i;
+var filters;
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html',
@@ -26,10 +29,11 @@ export class LoginPage {
   auth: any
   users = [];
   userProfile: any = null;
-  constructor(public toastCtrl: ToastController, public navCtrl: NavController, private service: service,
+  constructor(public toastCtrl: ToastController, public navCtrl: NavController, private service: service, private geolocation: Geolocation,
     private facebook: Facebook, public plt: Platform, private googlePlus: GooglePlus, private alertCtrl: AlertController) {
 
     users = [];
+    filters=[];
     var app = service.getApp();
     auth = app.auth();
     var database = app.database();
@@ -38,6 +42,14 @@ export class LoginPage {
       users.push(snapshot);
     });
     this.service.setUsers(users);
+    databaseRef1 = database.ref().child("filters");
+    databaseRef1.on("child_added", function (snapshot) {
+      filters.push(snapshot);
+    });
+    this.geolocation.getCurrentPosition().then((resp) => {
+    this.service.latitude=resp.coords.latitude; 
+    this.service.longitude=resp.coords.longitude;
+    });
   }
 
   googleLogin(): void {
@@ -203,6 +215,7 @@ export class LoginPage {
   setUsername(email): void {
     var cont = this.service.users.length;
     var username = "";
+    var list=[];
     for (i = 0; i < cont; i++) {
       var user = this.service.getUsers()[i];
       if (user.child("email").val() == email) {
@@ -211,10 +224,19 @@ export class LoginPage {
         break;
       }
     }
+    for(i=0; i<filters.length; i++){
+      var data=filters[i];
+      if(data.child('user').val()==username){
+        list.push(data);
+      }
+    }
+    this.service.setFilters(list);
     this.service.setUser(username);
     this.email = '';
     this.password = '';
     console.log("Username: " + this.service.getUser());
+    console.log(this.service.getFilters());
+    console.log(this.service.getFilters()[0]);
   }
 
 

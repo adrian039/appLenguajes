@@ -103,6 +103,7 @@ export class NewNotificationPage {
       databaseRef.child(data.key).update({ "/state": 'active' });
     }
   }
+  
 
 }
 

@@ -24,20 +24,36 @@
           </ion-row>
         </ion-grid>
       </ion-item>
-       <ion-item *ngIf="data.child('user').val()!=='admin'">
-        <ion-grid>
-          <ion-row>
-            <ion-col>
-              <img src="" width="96" height="96" />
-            </ion-col>
-            <ion-col>
-              <h2> Title</h2>
-              <br>
-              <h3>Message</h3>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
-      </ion-item>
+      <ion-item-sliding *ngIf="data.child('user').val()!=='admin'" style="border-right: solid 5px green;">
+        <ion-item>
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <button ion-button color="light" clear icon-only (click)="viewPhotos(data)">
+              <ion-icon name='images'></ion-icon>
+              </button>
+                <br>
+                <br>
+                <h2 style="color:white;">{{data.child('category').val()}}</h2>
+                <h2 style="color:white;">{{data.child('subCategory').val()}}</h2>
+              </ion-col>
+              <ion-col>
+                <h2 style="color:white;"><strong>Title: {{data.child('name').val()}}</strong></h2>
+                <h3 style="color:white;">Autor: {{data.child('autor').val()}}</h3>
+                <h3 style="color:white;">Language: {{data.child('language').val()}}</h3>
+                <h3 style="color:white;">User: {{data.child('user').val()}}</h3>
+                <h1 style="color:white;"><strong>Price: {{data.child('price').val()}}</strong></h1>
+
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-item>
+       <ion-item-options side="right">
+          <button ion-button color="balanced" (click)="deleteNot(data)">
+    MAPS
+    	</button>
+        </ion-item-options>
+      </ion-item-sliding>
     </div>
   </ion-list>
 </ion-content>

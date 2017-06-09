@@ -20,7 +20,8 @@ import {SCategoryPage} from '../pages/s-category/s-category';
 import {NewNotificationPage} from '../pages/new-notification/new-notification';
 import {MySalesPage} from '../pages/my-sales/my-sales';
 import {CategoryPage} from '../pages/category/category';
-import {SettingsPage} from '../pages/settings/settings';
+import {FiltersPage} from '../pages/filters/filters';
+import {NewFilterPage} from '../pages/new-filter/new-filter';
 import { FileChooser } from '@ionic-native/file-chooser';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -49,7 +50,8 @@ import { PhotoViewer } from '@ionic-native/photo-viewer';
     NewNotificationPage,
     MySalesPage,
     CategoryPage,
-    SettingsPage
+    FiltersPage,
+    NewFilterPage
     
   ],
   imports: [
@@ -76,7 +78,8 @@ import { PhotoViewer } from '@ionic-native/photo-viewer';
     NewNotificationPage,
     MySalesPage,
     CategoryPage,
-    SettingsPage
+    FiltersPage,
+    NewFilterPage
     
   ],
   providers: [

@@ -15,6 +15,10 @@ export class service {
     image: any;
     category: any;
     subCategory: any;
+    notifications: any;
+    filters: any;
+    latitude: any;
+    longitude: any
 
     constructor() {
         this.app = null;
@@ -25,9 +29,10 @@ export class service {
         this.address = "";
         this.phone = "";
         this.image = "";
+        this.notifications = "";
         this.userinfo = [];
-        this.category='Category';
-        this.subCategory='SubCategory';
+        this.category = 'Category';
+        this.subCategory = 'SubCategory';
     }
 
     setApp(app) {
@@ -54,6 +59,14 @@ export class service {
         return this.users;
     }
 
+    setFilters(data) {
+        this.filters = data;
+    }
+
+    getFilters() {
+        return this.filters;
+    }
+
     setUserInfo(info) {
         this.userinfo = info;
         this.name = info.child('name').val();
@@ -62,6 +75,7 @@ export class service {
         this.address = info.child('address').val();
         this.phone = info.child('phone').val();
         this.image = info.child('image').val();
+        this.notifications = info.child('notifications').val();
     }
 
     getUserInfo() {

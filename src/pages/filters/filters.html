@@ -1,0 +1,50 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Notification Filters</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+   <ion-fab right bottom>
+    <button ion-fab color="blue" (click)="newFilter()"><ion-icon name="add"></ion-icon></button>
+      </ion-fab>
+    <h4 style="color:white">My Filters</h4>
+  <ion-card>
+    <ion-list *ngFor="let data of filters">
+      <ion-item-sliding style="border-right: solid 5px green;">
+         <ion-item>
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+               
+            
+              <h2 style="color:white;">Cat: {{data.child('category').val()}}</h2>
+              <h2 style="color:white;">SubCat: {{data.child('subCategory').val()}}</h2>
+              </ion-col>
+              <ion-col>
+                <h2 style="color:white;">MinPrice: {{data.child('minPrice').val()}}</h2>
+                <h2 style="color:white;">MaxPrice: {{data.child('maxPrice').val()}}</h2>
+                <h2 style="color:white;">Distance: {{data.child('distance').val()}} Km</h2>
+
+                
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-item>
+        <ion-item-options side="right">
+          <button ion-button color="danger" (click)="deleteFil(data)">
+    DELETE
+    	</button>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+  </ion-card>
+</ion-content>
+<button ion-button secondary menuToggle>Toggle Menu</button>
