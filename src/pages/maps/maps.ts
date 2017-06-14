@@ -3,6 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { GoogleMaps, GoogleMap, LatLng, CameraPosition, GoogleMapsEvent, MarkerOptions, Marker } from '@ionic-native/google-maps';
 import { service } from '../service/service';
 
+declare var google;
 
 @Component({
   selector: 'page-maps',
@@ -11,6 +12,8 @@ import { service } from '../service/service';
 export class MapsPage {
   lat = 0;
   lon = 0;
+  directionsService = new google.maps.DirectionsService;
+  directionsDisplay = new google.maps.DirectionsRenderer;
   constructor(public navCtrl: NavController, public navParams: NavParams, public googleMaps: GoogleMaps,
     private service: service, ) {
     this.lat = this.navParams.get('lat');
@@ -51,7 +54,7 @@ export class MapsPage {
           });
 
         let pos: LatLng = new LatLng(+this.lat, +this.lon);
-        let markerOptions1: MarkerOptions = {
+       let markerOptions1: MarkerOptions = {
           position: pos,
           title: 'BOOK'
         };
@@ -60,7 +63,6 @@ export class MapsPage {
           .then((marker1: Marker) => {
             marker1.showInfoWindow();
           });
-
 
 
       }
