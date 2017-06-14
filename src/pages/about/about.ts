@@ -121,7 +121,14 @@ export class AboutPage {
   }
 
   deleteAll() {
-
+    databaseRef.on("child_added", function (snapshot) {
+      var user1 = snapshot.child("origin").val();
+      var user2 = snapshot.child("target").val();
+      if (((user1 == name1) && (user2 == currentUser)) || ((user1 == currentUser) && (user2 == name1))) {
+       databaseRef.child(snapshot.key).remove();
+      }
+    });
+    alert("Messages has been deleted! :)");
   }
 
   ionViewDidLoad() {
