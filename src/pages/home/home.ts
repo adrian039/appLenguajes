@@ -16,7 +16,7 @@ export class HomePage {
   notifications = [];
   constructor(public toastCtrl: ToastController, public navCtrl: NavController, private service: service,
     private photoViewer: PhotoViewer, private geolocation: Geolocation) {
-	//comentario
+    //comentario
 
     function rad(x) {
       return x * Math.PI / 180;
@@ -40,7 +40,48 @@ export class HomePage {
     databaseRef = database.ref().child("notifications");
     databaseRef.on("child_added", function (snapshot) {
       if ((snapshot.child('state').val() == 'active') && (snapshot.child('user').val() == 'admin')) {
-        notifications.push(snapshot);
+        var cat = snapshot.child('category').val();
+        var sCat = snapshot.child('subCategory').val();
+        var country = snapshot.child('country').val();
+        if (service.getFilters().length == 0) {
+          console.log("hola");
+          notifications.push(snapshot);
+          cont++;
+        } else {
+          for (i = 0; i < service.getFilters().length; i++) {
+            var data = service.getFilters()[i];
+            var filCat = data.child('category').val();
+            var filScat = data.child('subCategory').val();
+            var filCountry = data.child('country').val();
+            if ((filCat == "") && (filScat == "")) {
+              if (filCountry == "") {
+                notifications.push(snapshot);
+
+              } else if (filCountry == country) {
+                notifications.push(snapshot);
+              }
+
+            } else if ((filCat != "") && (filScat == "")) {
+              if (filCat == cat) {
+                if (filCountry == "") {
+                  notifications.push(snapshot);
+
+                } else if (filCountry == country) {
+                  notifications.push(snapshot);
+                }
+              }
+            } else if ((filCat != "") && (filScat != "")) {
+              if ((filCat == cat) && (filScat == sCat)) {
+                if (filCountry == "") {
+                  notifications.push(snapshot);
+
+                } else if (filCountry == country) {
+                  notifications.push(snapshot);
+                }
+              }
+            }
+          }
+        }
 
       } else if ((snapshot.child('user').val() != service.getUser()) && (snapshot.child('state').val() == 'active') &&
         (cont < not)) {

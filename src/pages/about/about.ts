@@ -120,7 +120,11 @@ export class AboutPage {
     });
   }
 
-ionViewDidLoad(){
+  deleteAll() {
+
+  }
+
+  ionViewDidLoad() {
     databaseRef.on("child_added", function (snapshot) {
       var message = snapshot.child("message").val();
       var user1 = snapshot.child("origin").val();
@@ -164,6 +168,6 @@ ionViewDidLoad(){
 
 
     });
-}
+  }
 
 }

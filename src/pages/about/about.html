@@ -3,9 +3,12 @@
 		<button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-		<ion-title>
-			Chat
-		</ion-title>
+		<ion-row>
+		<ion-title>Chat	        </ion-title>
+		<button ion-button color="light" clear icon-only (click)="deleteAll()">
+      <ion-icon name='trash'></ion-icon>
+    </button>
+		</ion-row>
 	</ion-navbar>
 
 </ion-header>

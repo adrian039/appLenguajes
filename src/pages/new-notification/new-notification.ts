@@ -5,6 +5,7 @@ import { FilePath } from '@ionic-native/file-path';
 import { ImageResizer, ImageResizerOptions } from '@ionic-native/image-resizer';
 import { service } from '../service/service';
 import { LoadingController } from 'ionic-angular';
+import { CategoryPage } from '../category/category';
 
 var databaseRef;
 var firestore;
@@ -17,6 +18,7 @@ export class NewNotificationPage {
   image = "";
   title = "";
   message = "";
+  country="";
   notifications = [];
   constructor(public navCtrl: NavController, public navParams: NavParams, private filechooser: FileChooser,
     private filePath: FilePath, private imageResizer: ImageResizer, private service: service, public loadingCtrl: LoadingController) {
@@ -73,7 +75,8 @@ export class NewNotificationPage {
           var imageStore = firestore.ref('/notificationImages/').child(fileName);
           imageStore.put(imgBlob).then((res) => {
             firestore.ref('/notificationImages/').child(fileName).getDownloadURL().then((url) => {
-              var data = { user: 'admin', title: this.title, message: this.message, image: url, state: 'active' }
+              var data = { user: 'admin', title: this.title, message: this.message, image: url, state: 'active',
+            country:this.country, category:this.service.category, subCategory:this.service.subCategory }
               databaseRef.push().set(data);
               loader.dismiss();
               alert('Notification has been created :)');
@@ -101,6 +104,14 @@ export class NewNotificationPage {
       databaseRef.child(data.key).update({ "/state": 'lock' });
     } else {
       databaseRef.child(data.key).update({ "/state": 'active' });
+    }
+  }
+
+  selectCat(type): void {
+    if (type == 'category') {
+      this.navCtrl.push(CategoryPage, { type: 'category' });
+    } else {
+      this.navCtrl.push(CategoryPage, { type: 'subCategory', source: this.service.category });
     }
   }
   
