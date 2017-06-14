@@ -4,6 +4,7 @@ import { service } from '../service/service';
 import { ToastController } from 'ionic-angular';
 import { PhotoViewer } from '@ionic-native/photo-viewer';
 import { Geolocation } from '@ionic-native/geolocation';
+import { MapsPage } from '../maps/maps';
 
 var notifications;
 var databaseRef;
@@ -267,8 +268,11 @@ export class HomePage {
     this.photoViewer.show(img2);
     this.photoViewer.show(img3);
   }
-
-
+  
+  openMap(data){
+    this.navCtrl.push(MapsPage, {lat: data.child('latitude').val(), 
+  lon: data.child('longitude').val()});
+  }
 
 
 
