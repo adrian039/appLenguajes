@@ -100,6 +100,16 @@
           <string>277425577496-dnlcuktkpo5j1visfb81auev97t625p1.apps.googleusercontent.com</string>
         </array>
       </dict>
+      <dict>
+        <key>CFBundleTypeRole</key>
+        <string>Editor</string>
+        <key>CFBundleURLName</key>
+        <string>com.ionicframework.myapp745530</string>
+        <key>CFBundleURLSchemes</key>
+        <array>
+          <string>com.ionicframework.myapp745530</string>
+        </array>
+      </dict>
     </array>
     <key>LSApplicationQueriesSchemes</key>
     <array>
@@ -107,12 +117,18 @@
       <string>fb-messenger-api</string>
       <string>fbauth2</string>
       <string>fbshareextension</string>
+      <string>googlechromes</string>
+      <string>comgooglemaps</string>
     </array>
     <key>NSCameraUsageDescription</key>
     <string/>
     <key>NSPhotoLibraryUsageDescription</key>
     <string/>
     <key>NSLocationWhenInUseUsageDescription</key>
-    <string></string>
+    <string>$NSLocationWhenInUseUsageDescription</string>
+    <key>Google Maps API Key</key>
+    <string>AIzaSyBapkDHe7px32dyEivsRE157HhKB27MCBQ</string>
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>$NSLocationAlwaysUsageDescription</string>
   </dict>
 </plist>

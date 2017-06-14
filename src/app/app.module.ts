@@ -22,6 +22,7 @@ import {MySalesPage} from '../pages/my-sales/my-sales';
 import {CategoryPage} from '../pages/category/category';
 import {FiltersPage} from '../pages/filters/filters';
 import {NewFilterPage} from '../pages/new-filter/new-filter';
+import {MapsPage} from '../pages/maps/maps';
 import { FileChooser } from '@ionic-native/file-chooser';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -33,6 +34,7 @@ import { Camera } from '@ionic-native/camera';
 import { ImageResizer } from '@ionic-native/image-resizer';
 import { Geolocation } from '@ionic-native/geolocation';
 import { PhotoViewer } from '@ionic-native/photo-viewer';
+import { GoogleMaps } from '@ionic-native/google-maps';
 
 
 @NgModule({
@@ -51,7 +53,8 @@ import { PhotoViewer } from '@ionic-native/photo-viewer';
     MySalesPage,
     CategoryPage,
     FiltersPage,
-    NewFilterPage
+    NewFilterPage,
+    MapsPage
     
   ],
   imports: [
@@ -79,7 +82,8 @@ import { PhotoViewer } from '@ionic-native/photo-viewer';
     MySalesPage,
     CategoryPage,
     FiltersPage,
-    NewFilterPage
+    NewFilterPage,
+    MapsPage
     
   ],
   providers: [
@@ -94,6 +98,7 @@ import { PhotoViewer } from '@ionic-native/photo-viewer';
     ImageResizer,
     Geolocation,
     PhotoViewer,
+    GoogleMaps,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

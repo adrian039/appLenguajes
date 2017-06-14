@@ -99,6 +99,50 @@
                         {
                             "xml": "<feature name=\"PhotoViewer\"><param name=\"ios-package\" value=\"PhotoViewer\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"GoogleMaps\"><param name=\"ios-package\" value=\"GoogleMaps\" /><param name=\"onload\" value=\"true\" /><param name=\"onreset\" value=\"true\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"External\"><param name=\"ios-package\" value=\"External\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Geocoder\"><param name=\"ios-package\" value=\"Geocoder\" /></feature>",
+                            "count": 2
+                        },
+                        {
+                            "xml": "<feature name=\"Map\"><param name=\"ios-package\" value=\"Map\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Circle\"><param name=\"ios-package\" value=\"Circle\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"GroundOverlay\"><param name=\"ios-package\" value=\"GroundOverlay\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"KmlOverlay\"><param name=\"ios-package\" value=\"KmlOverlay\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Marker\"><param name=\"ios-package\" value=\"Marker\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Polygon\"><param name=\"ios-package\" value=\"Polygon\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Polyline\"><param name=\"ios-package\" value=\"Polyline\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"TileOverlay\"><param name=\"ios-package\" value=\"TileOverlay\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -125,6 +169,10 @@
                         {
                             "xml": "<array><dict><key>CFBundleTypeRole</key><string>Editor</string><key>CFBundleURLName</key><string>REVERSED_CLIENT_ID</string><key>CFBundleURLSchemes</key><array><string>277425577496-dnlcuktkpo5j1visfb81auev97t625p1.apps.googleusercontent.com</string></array></dict></array>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<array><dict><key>CFBundleTypeRole</key><string>Editor</string><key>CFBundleURLName</key><string>com.ionicframework.myapp745530</string><key>CFBundleURLSchemes</key><array><string>com.ionicframework.myapp745530</string></array></dict></array>",
+                            "count": 1
                         }
                     ],
                     "NSAppTransportSecurity": [
@@ -136,6 +184,10 @@
                     "LSApplicationQueriesSchemes": [
                         {
                             "xml": "<array><string>fbapi</string><string>fb-messenger-api</string><string>fbauth2</string><string>fbshareextension</string></array>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<array><string>googlechromes</string><string>comgooglemaps</string></array>",
                             "count": 1
                         }
                     ],
@@ -158,6 +210,22 @@
                         },
                         {
                             "xml": "<string> </string>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<string>$NSLocationWhenInUseUsageDescription</string>",
+                            "count": 1
+                        }
+                    ],
+                    "Google Maps API Key": [
+                        {
+                            "xml": "<string>AIzaSyBapkDHe7px32dyEivsRE157HhKB27MCBQ</string>",
+                            "count": 1
+                        }
+                    ],
+                    "NSLocationAlwaysUsageDescription": [
+                        {
+                            "xml": "<string>$NSLocationAlwaysUsageDescription</string>",
                             "count": 1
                         }
                     ]
@@ -221,6 +289,15 @@
             "PACKAGE_NAME": "com.ionicframework.myapp745530"
         },
         "com-sarriaroman-photoviewer": {
+            "PACKAGE_NAME": "com.ionicframework.myapp745530"
+        },
+        "com.googlemaps.ios": {
+            "PACKAGE_NAME": "com.ionicframework.myapp745530"
+        },
+        "cordova-plugin-googlemaps": {
+            "API_KEY_FOR_IOS": "AIzaSyBapkDHe7px32dyEivsRE157HhKB27MCBQ",
+            "NSLOCATIONWHENINUSEUSAGEDESCRIPTION": "Show your location on the map",
+            "NSLOCATIONALWAYSUSAGEDESCRIPTION": "Trace your location on the map",
             "PACKAGE_NAME": "com.ionicframework.myapp745530"
         }
     },
@@ -560,6 +637,14 @@
             "clobbers": [
                 "PhotoViewer"
             ]
+        },
+        {
+            "id": "cordova-plugin-googlemaps.cordova-plugin-googlemaps",
+            "file": "plugins/cordova-plugin-googlemaps/www/googlemaps-cdv-plugin.js",
+            "pluginId": "cordova-plugin-googlemaps",
+            "clobbers": [
+                "cordova-plugin-googlemaps"
+            ]
         }
     ],
     "plugin_metadata": {
@@ -579,6 +664,8 @@
         "info.protonet.imageresizer": "0.1.1",
         "cordova-plugin-camera": "2.4.1",
         "cordova-plugin-geolocation": "2.4.3",
-        "com-sarriaroman-photoviewer": "1.1.10"
+        "com-sarriaroman-photoviewer": "1.1.10",
+        "com.googlemaps.ios": "2.2.0-fixed",
+        "cordova-plugin-googlemaps": "1.4.0"
     }
 }

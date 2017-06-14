@@ -60,10 +60,19 @@
         },
         "com-sarriaroman-photoviewer": {
             "PACKAGE_NAME": "com.ionicframework.myapp745530"
+        },
+        "cordova-plugin-googlemaps": {
+            "API_KEY_FOR_IOS": "AIzaSyBapkDHe7px32dyEivsRE157HhKB27MCBQ",
+            "NSLOCATIONWHENINUSEUSAGEDESCRIPTION": "Show your location on the map",
+            "NSLOCATIONALWAYSUSAGEDESCRIPTION": "Trace your location on the map",
+            "PACKAGE_NAME": "com.ionicframework.myapp745530"
         }
     },
     "dependent_plugins": {
         "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.ionicframework.myapp745530"
+        },
+        "com.googlemaps.ios": {
             "PACKAGE_NAME": "com.ionicframework.myapp745530"
         }
     }

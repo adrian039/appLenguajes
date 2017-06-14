@@ -308,6 +308,14 @@ module.exports = [
         "clobbers": [
             "PhotoViewer"
         ]
+    },
+    {
+        "id": "cordova-plugin-googlemaps.cordova-plugin-googlemaps",
+        "file": "plugins/cordova-plugin-googlemaps/www/googlemaps-cdv-plugin.js",
+        "pluginId": "cordova-plugin-googlemaps",
+        "clobbers": [
+            "cordova-plugin-googlemaps"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -329,7 +337,8 @@ module.exports.metadata =
     "info.protonet.imageresizer": "0.1.1",
     "cordova-plugin-camera": "2.4.1",
     "cordova-plugin-geolocation": "2.4.3",
-    "com-sarriaroman-photoviewer": "1.1.10"
+    "com-sarriaroman-photoviewer": "1.1.10",
+    "cordova-plugin-googlemaps": "1.4.0"
 };
 // BOTTOM OF METADATA
 });

@@ -56,6 +56,10 @@
         },
         "com-sarriaroman-photoviewer": {
             "PACKAGE_NAME": "com.ionicframework.myapp745530"
+        },
+        "cordova-plugin-googlemaps": {
+            "API_KEY_FOR_ANDROID": "AIzaSyC3tPT_JwtJoaYz1n6klEpEgxpfrnKqS88",
+            "PACKAGE_NAME": "com.ionicframework.myapp745530"
         }
     },
     "dependent_plugins": {

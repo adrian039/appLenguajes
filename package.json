@@ -26,6 +26,7 @@
     "@ionic-native/file-chooser": "^3.10.3",
     "@ionic-native/file-path": "^3.10.3",
     "@ionic-native/geolocation": "^3.11.0",
+    "@ionic-native/google-maps": "^3.12.1",
     "@ionic-native/google-plus": "^3.10.0",
     "@ionic-native/image-resizer": "^3.10.3",
     "@ionic-native/photo-viewer": "^3.11.0",
@@ -56,7 +57,8 @@
     "ionic-plugin-keyboard",
     "cordova-plugin-camera",
     "cordova-plugin-geolocation",
-    "com-sarriaroman-photoviewer"
+    "com-sarriaroman-photoviewer",
+    "cordova-plugin-googlemaps"
   ],
   "cordovaPlatforms": [],
   "description": "myApp: An Ionic project"
