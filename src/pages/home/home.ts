@@ -16,6 +16,7 @@ export class HomePage {
   notifications = [];
   constructor(public toastCtrl: ToastController, public navCtrl: NavController, private service: service,
     private photoViewer: PhotoViewer, private geolocation: Geolocation) {
+	//comentario
 
     function rad(x) {
       return x * Math.PI / 180;
