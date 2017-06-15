@@ -83,6 +83,9 @@
 		DC981C8BE2434523AE47314A /* MyReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 6330343B8E25405693F996BB /* MyReachability.m */; };
 		78FE3E0CAC2642A1B8390382 /* MyPluginLayerDebugView.m in Sources */ = {isa = PBXBuildFile; fileRef = 881EC22947224084842C0195 /* MyPluginLayerDebugView.m */; };
 		00BBF57DDD3B49F49513507D /* MyPluginScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 43031742D0FD4F14907CF156 /* MyPluginScrollView.m */; };
+		FA051C4F31244FF79553EB56 /* CDVVibration.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FF6BC9CA55C4CA58560E7D5 /* CDVVibration.m */; };
+		D58FDC29D1BC4D83BFF3BEAF /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEE4E3F02F314D8E938F0510 /* AudioToolbox.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		F0D6B3B4924A43FD81A77D6A /* CDVSound.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BAF7D37DCDD447DA1CF9786 /* CDVSound.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -233,6 +236,11 @@
 		038EA441F34C402AB5CBB84C /* MyReachability.h */ = {isa = PBXFileReference; name = "MyReachability.h"; path = "cordova-plugin-googlemaps/MyReachability.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 		D8F935C5A5A7465FAB4B0883 /* MyPluginLayerDebugView.h */ = {isa = PBXFileReference; name = "MyPluginLayerDebugView.h"; path = "cordova-plugin-googlemaps/MyPluginLayerDebugView.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 		4D13A475A9AE4F9680F05F72 /* MyPluginScrollView.h */ = {isa = PBXFileReference; name = "MyPluginScrollView.h"; path = "cordova-plugin-googlemaps/MyPluginScrollView.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		0FF6BC9CA55C4CA58560E7D5 /* CDVVibration.m */ = {isa = PBXFileReference; name = "CDVVibration.m"; path = "cordova-plugin-vibration/CDVVibration.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		3C206A5400CB4024B6C7EC90 /* CDVVibration.h */ = {isa = PBXFileReference; name = "CDVVibration.h"; path = "cordova-plugin-vibration/CDVVibration.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		AEE4E3F02F314D8E938F0510 /* AudioToolbox.framework */ = {isa = PBXFileReference; name = "AudioToolbox.framework"; path = "System/Library/Frameworks/AudioToolbox.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		7BAF7D37DCDD447DA1CF9786 /* CDVSound.m */ = {isa = PBXFileReference; name = "CDVSound.m"; path = "cordova-plugin-media/CDVSound.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		38787A19AF634B4AA3C856FF /* CDVSound.h */ = {isa = PBXFileReference; name = "CDVSound.h"; path = "cordova-plugin-media/CDVSound.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -271,6 +279,7 @@
 				DBA3121A4EA542588C9E92CC /* GoogleMapsBase.framework in Frameworks */,
 				B63E7E9E8C7047F18F2E0BC3 /* GoogleMaps.framework in Frameworks */,
 				6B90EA5B5E4A496EBDAC39F0 /* GoogleMapsCore.framework in Frameworks */,
+				D58FDC29D1BC4D83BFF3BEAF /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,6 +382,7 @@
 				8AE1914C75B54F90A35AC953 /* GoogleMapsBase.framework */,
 				7C1EF5C9AFFF4C24B9FCFF6C /* GoogleMaps.framework */,
 				F3990922A31C4FBC81538BA3 /* GoogleMapsCore.framework */,
+				AEE4E3F02F314D8E938F0510 /* AudioToolbox.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -476,6 +486,10 @@
 				038EA441F34C402AB5CBB84C /* MyReachability.h */,
 				D8F935C5A5A7465FAB4B0883 /* MyPluginLayerDebugView.h */,
 				4D13A475A9AE4F9680F05F72 /* MyPluginScrollView.h */,
+				0FF6BC9CA55C4CA58560E7D5 /* CDVVibration.m */,
+				3C206A5400CB4024B6C7EC90 /* CDVVibration.h */,
+				7BAF7D37DCDD447DA1CF9786 /* CDVSound.m */,
+				38787A19AF634B4AA3C856FF /* CDVSound.h */,
 			);
 			name = Plugins;
 			path = myApp/Plugins;
@@ -636,6 +650,8 @@
 				DC981C8BE2434523AE47314A /* MyReachability.m in Sources */,
 				78FE3E0CAC2642A1B8390382 /* MyPluginLayerDebugView.m in Sources */,
 				00BBF57DDD3B49F49513507D /* MyPluginScrollView.m in Sources */,
+				FA051C4F31244FF79553EB56 /* CDVVibration.m in Sources */,
+				F0D6B3B4924A43FD81A77D6A /* CDVSound.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

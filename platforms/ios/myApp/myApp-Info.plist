@@ -130,5 +130,7 @@
     <string>AIzaSyBapkDHe7px32dyEivsRE157HhKB27MCBQ</string>
     <key>NSLocationAlwaysUsageDescription</key>
     <string>$NSLocationAlwaysUsageDescription</string>
+    <key>NSMicrophoneUsageDescription</key>
+    <string></string>
   </dict>
 </plist>

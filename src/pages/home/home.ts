@@ -5,10 +5,13 @@ import { ToastController } from 'ionic-angular';
 import { PhotoViewer } from '@ionic-native/photo-viewer';
 import { Geolocation } from '@ionic-native/geolocation';
 import { MapsPage } from '../maps/maps';
+import { MediaPlugin, MediaObject } from '@ionic-native/media';
+import { Vibration } from '@ionic-native/vibration';
 
 var notifications;
 var databaseRef;
 var i;
+var flag;
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -16,9 +19,8 @@ var i;
 export class HomePage {
   notifications = [];
   constructor(public toastCtrl: ToastController, public navCtrl: NavController, private service: service,
-    private photoViewer: PhotoViewer, private geolocation: Geolocation) {
+    private photoViewer: PhotoViewer, private geolocation: Geolocation, private media: MediaPlugin, private vibration: Vibration) {
     //comentario
-
     function rad(x) {
       return x * Math.PI / 180;
     }
@@ -33,11 +35,34 @@ export class HomePage {
       console.log("hola hola" + d.toFixed(3));
       return d.toFixed(3); //Retorna tres decimales
     }
+
+    function playSound(sound) {
+      const onStatusUpdate = (status) => console.log(status);
+      const onSuccess = () => console.log('Action is successful.');
+      const onError = (error) => console.error(error.message);
+
+      const iphone: MediaObject = media.create('https://firebasestorage.googleapis.com/v0/b/base-58db2.appspot.com/o/systemFiles%2Fsounds%2Fiphone.mp3?alt=media&token=0c7236d0-1261-463f-9ace-d36c1114a39a', onStatusUpdate, onSuccess, onError);
+      const sound1: MediaObject = media.create('https://firebasestorage.googleapis.com/v0/b/base-58db2.appspot.com/o/systemFiles%2Fsounds%2Fsound.mp3?alt=media&token=db7c9dec-8324-48ae-b1a5-5d986df20524', onStatusUpdate, onSuccess, onError);
+      const sound2: MediaObject = media.create('https://firebasestorage.googleapis.com/v0/b/base-58db2.appspot.com/o/systemFiles%2Fsounds%2Fsound1.mp3?alt=media&token=0e605653-0824-4e5e-b0c7-e3b933085331', onStatusUpdate, onSuccess, onError);
+
+      // play the file
+      if (sound == 'iphone') {
+        iphone.play();
+      } else if (sound == 'sound1') {
+        sound1.play();
+      } else if (sound == 'sound2') {
+        sound2.play();
+      } else if (sound == 'vibrate') {
+        vibration.vibrate(1000);
+      }
+
+    }
     var app = service.getApp();
     var database = app.database();
     notifications = [];
     var not = +service.notifications;
     var cont = 0;
+    flag=false;
     databaseRef = database.ref().child("notifications");
     databaseRef.on("child_added", function (snapshot) {
       if ((snapshot.child('state').val() == 'active') && (snapshot.child('user').val() == 'admin')) {
@@ -57,27 +82,45 @@ export class HomePage {
             if ((filCat == "") && (filScat == "")) {
               if (filCountry == "") {
                 notifications.push(snapshot);
+                if (flag) {
+                  playSound(service.sound);
+                }
 
               } else if (filCountry == country) {
                 notifications.push(snapshot);
+                if (flag) {
+                  playSound(service.sound);
+                }
               }
 
             } else if ((filCat != "") && (filScat == "")) {
               if (filCat == cat) {
                 if (filCountry == "") {
                   notifications.push(snapshot);
+                  if (flag) {
+                    playSound(service.sound);
+                  }
 
                 } else if (filCountry == country) {
                   notifications.push(snapshot);
+                  if (flag) {
+                    playSound(service.sound);
+                  }
                 }
               }
             } else if ((filCat != "") && (filScat != "")) {
               if ((filCat == cat) && (filScat == sCat)) {
                 if (filCountry == "") {
                   notifications.push(snapshot);
+                  if (flag) {
+                    playSound(service.sound);
+                  }
 
                 } else if (filCountry == country) {
                   notifications.push(snapshot);
+                  if (flag) {
+                    playSound(service.sound);
+                  }
                 }
               }
             }
@@ -111,20 +154,32 @@ export class HomePage {
                   if (filDistance == "") {
                     notifications.push(snapshot);
                     cont++;
+                    if (flag) {
+                      playSound(service.sound);
+                    }
                     break;
                   } else if (+getDistance(latitude, longitude, service.latitude, service.longitude) <= +filDistance) {
                     notifications.push(snapshot);
                     cont++;
+                    if (flag) {
+                      playSound(service.sound);
+                    }
                     break;
                   }
                 } else if ((+filMinPrice <= +price) && (+filMaxPrice >= +price)) {
                   if (filDistance == "") {
                     notifications.push(snapshot);
                     cont++;
+                    if (flag) {
+                      playSound(service.sound);
+                    }
                     break;
                   } else if (+getDistance(latitude, longitude, service.latitude, service.longitude) <= +filDistance) {
                     notifications.push(snapshot);
                     cont++;
+                    if (flag) {
+                      playSound(service.sound);
+                    }
                     break;
                   }
                 }
@@ -134,20 +189,32 @@ export class HomePage {
                   if (filDistance == "") {
                     notifications.push(snapshot);
                     cont++;
+                    if (flag) {
+                      playSound(service.sound);
+                    }
                     break;
                   } else if (+getDistance(latitude, longitude, service.latitude, service.longitude) <= +filDistance) {
                     notifications.push(snapshot);
                     cont++;
+                    if (flag) {
+                      playSound(service.sound);
+                    }
                     break;
                   }
                 } else if ((+filMinPrice <= +price) && (+filMaxPrice >= +price)) {
                   if (filDistance == "") {
                     notifications.push(snapshot);
                     cont++;
+                    if (flag) {
+                      playSound(service.sound);
+                    }
                     break;
                   } else if (+getDistance(latitude, longitude, service.latitude, service.longitude) <= +filDistance) {
                     notifications.push(snapshot);
                     cont++;
+                    if (flag) {
+                      playSound(service.sound);
+                    }
                     break;
                   }
                 }
@@ -160,20 +227,32 @@ export class HomePage {
                     if (filDistance == "") {
                       notifications.push(snapshot);
                       cont++;
+                      if (flag) {
+                        playSound(service.sound);
+                      }
                       break;
                     } else if (+getDistance(latitude, longitude, service.latitude, service.longitude) <= +filDistance) {
                       notifications.push(snapshot);
                       cont++;
+                      if (flag) {
+                        playSound(service.sound);
+                      }
                       break;
                     }
                   } else if ((+filMinPrice <= +price) && (+filMaxPrice >= +price)) {
                     if (filDistance == "") {
                       notifications.push(snapshot);
                       cont++;
+                      if (flag) {
+                        playSound(service.sound);
+                      }
                       break;
                     } else if (+getDistance(latitude, longitude, service.latitude, service.longitude) <= +filDistance) {
                       notifications.push(snapshot);
                       cont++;
+                      if (flag) {
+                        playSound(service.sound);
+                      }
                       break;
                     }
                   }
@@ -183,20 +262,32 @@ export class HomePage {
                     if (filDistance == "") {
                       notifications.push(snapshot);
                       cont++;
+                      if (flag) {
+                        playSound(service.sound);
+                      }
                       break;
                     } else if (+getDistance(latitude, longitude, service.latitude, service.longitude) <= +filDistance) {
                       notifications.push(snapshot);
                       cont++;
+                      if (flag) {
+                        playSound(service.sound);
+                      }
                       break;
                     }
                   } else if ((+filMinPrice <= +price) && (+filMaxPrice >= +price)) {
                     if (filDistance == "") {
                       notifications.push(snapshot);
                       cont++;
+                      if (flag) {
+                        playSound(service.sound);
+                      }
                       break;
                     } else if (+getDistance(latitude, longitude, service.latitude, service.longitude) <= +filDistance) {
                       notifications.push(snapshot);
                       cont++;
+                      if (flag) {
+                        playSound(service.sound);
+                      }
                       break;
                     }
                   }
@@ -209,20 +300,32 @@ export class HomePage {
                     if (filDistance == "") {
                       notifications.push(snapshot);
                       cont++;
+                      if (flag) {
+                        playSound(service.sound);
+                      }
                       break;
                     } else if (+getDistance(latitude, longitude, service.latitude, service.longitude) <= +filDistance) {
                       notifications.push(snapshot);
                       cont++;
+                      if (flag) {
+                        playSound(service.sound);
+                      }
                       break;
                     }
                   } else if ((+filMinPrice <= +price) && (+filMaxPrice >= +price)) {
                     if (filDistance == "") {
                       notifications.push(snapshot);
                       cont++;
+                      if (flag) {
+                        playSound(service.sound);
+                      }
                       break;
                     } else if (+getDistance(latitude, longitude, service.latitude, service.longitude) <= +filDistance) {
                       notifications.push(snapshot);
                       cont++;
+                      if (flag) {
+                        playSound(service.sound);
+                      }
                       break;
                     }
                   }
@@ -232,20 +335,32 @@ export class HomePage {
                     if (filDistance == "") {
                       notifications.push(snapshot);
                       cont++;
+                      if (flag) {
+                        playSound(service.sound);
+                      }
                       break;
                     } else if (+getDistance(latitude, longitude, service.latitude, service.longitude) <= +filDistance) {
                       notifications.push(snapshot);
                       cont++;
+                      if (flag) {
+                        playSound(service.sound);
+                      }
                       break;
                     }
                   } else if ((+filMinPrice <= +price) && (+filMaxPrice >= +price)) {
                     if (filDistance == "") {
                       notifications.push(snapshot);
                       cont++;
+                      if (flag) {
+                        playSound(service.sound);
+                      }
                       break;
                     } else if (+getDistance(latitude, longitude, service.latitude, service.longitude) <= +filDistance) {
                       notifications.push(snapshot);
                       cont++;
+                      if (flag) {
+                        playSound(service.sound);
+                      }
                       break;
                     }
                   }
@@ -258,6 +373,7 @@ export class HomePage {
       }
     });
     this.notifications = notifications;
+    flag=true;
   }
 
   viewPhotos(data): void {
@@ -268,12 +384,13 @@ export class HomePage {
     this.photoViewer.show(img2);
     this.photoViewer.show(img3);
   }
-  
-  openMap(data){
-    this.navCtrl.push(MapsPage, {lat: data.child('latitude').val(), 
-  lon: data.child('longitude').val()});
-  }
 
+  openMap(data) {
+    this.navCtrl.push(MapsPage, {
+      lat: data.child('latitude').val(),
+      lon: data.child('longitude').val()
+    });
+  }
 
 
 }

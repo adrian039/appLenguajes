@@ -316,6 +316,31 @@ module.exports = [
         "clobbers": [
             "cordova-plugin-googlemaps"
         ]
+    },
+    {
+        "id": "cordova-plugin-vibration.notification",
+        "file": "plugins/cordova-plugin-vibration/www/vibration.js",
+        "pluginId": "cordova-plugin-vibration",
+        "merges": [
+            "navigator.notification",
+            "navigator"
+        ]
+    },
+    {
+        "id": "cordova-plugin-media.MediaError",
+        "file": "plugins/cordova-plugin-media/www/MediaError.js",
+        "pluginId": "cordova-plugin-media",
+        "clobbers": [
+            "window.MediaError"
+        ]
+    },
+    {
+        "id": "cordova-plugin-media.Media",
+        "file": "plugins/cordova-plugin-media/www/Media.js",
+        "pluginId": "cordova-plugin-media",
+        "clobbers": [
+            "window.Media"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -338,7 +363,9 @@ module.exports.metadata =
     "cordova-plugin-camera": "2.4.1",
     "cordova-plugin-geolocation": "2.4.3",
     "com-sarriaroman-photoviewer": "1.1.10",
-    "cordova-plugin-googlemaps": "1.4.0"
+    "cordova-plugin-googlemaps": "1.4.0",
+    "cordova-plugin-vibration": "2.1.5",
+    "cordova-plugin-media": "3.0.1"
 };
 // BOTTOM OF METADATA
 });

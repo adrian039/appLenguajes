@@ -18,7 +18,8 @@ export class service {
     notifications: any;
     filters: any;
     latitude: any;
-    longitude: any
+    longitude: any;
+    sound: any;
 
     constructor() {
         this.app = null;
@@ -33,6 +34,7 @@ export class service {
         this.userinfo = [];
         this.category = 'Category';
         this.subCategory = 'SubCategory';
+        this.sound="";
     }
 
     setApp(app) {
@@ -76,6 +78,7 @@ export class service {
         this.phone = info.child('phone').val();
         this.image = info.child('image').val();
         this.notifications = info.child('notifications').val();
+        this.sound=info.child('sound').val();
     }
 
     getUserInfo() {

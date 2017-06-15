@@ -33,13 +33,14 @@ export class LoginPage {
     private facebook: Facebook, public plt: Platform, private googlePlus: GooglePlus, private alertCtrl: AlertController) {
 
     users = [];
-    filters=[];
+    filters = [];
     var app = service.getApp();
     auth = app.auth();
     var database = app.database();
     databaseRef = database.ref().child("users");
     databaseRef.on("child_added", function (snapshot) {
       users.push(snapshot);
+    
     });
     this.service.setUsers(users);
     databaseRef1 = database.ref().child("filters");
@@ -47,8 +48,8 @@ export class LoginPage {
       filters.push(snapshot);
     });
     this.geolocation.getCurrentPosition().then((resp) => {
-    this.service.latitude=resp.coords.latitude; 
-    this.service.longitude=resp.coords.longitude;
+      this.service.latitude = resp.coords.latitude;
+      this.service.longitude = resp.coords.longitude;
     });
   }
 
@@ -215,7 +216,7 @@ export class LoginPage {
   setUsername(email): void {
     var cont = this.service.users.length;
     var username = "";
-    var list=[];
+    var list = [];
     for (i = 0; i < cont; i++) {
       var user = this.service.getUsers()[i];
       if (user.child("email").val() == email) {
@@ -224,9 +225,9 @@ export class LoginPage {
         break;
       }
     }
-    for(i=0; i<filters.length; i++){
-      var data=filters[i];
-      if(data.child('user').val()==username){
+    for (i = 0; i < filters.length; i++) {
+      var data = filters[i];
+      if (data.child('user').val() == username) {
         list.push(data);
       }
     }
@@ -239,7 +240,7 @@ export class LoginPage {
     console.log(this.service.getFilters()[0]);
   }
 
-
+  
 
 
 }

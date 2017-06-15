@@ -169,4 +169,10 @@
     <feature name="TileOverlay">
         <param name="ios-package" value="TileOverlay" />
     </feature>
+    <feature name="Vibration">
+        <param name="ios-package" value="CDVVibration" />
+    </feature>
+    <feature name="Media">
+        <param name="ios-package" value="CDVSound" />
+    </feature>
 </widget>

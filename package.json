@@ -29,10 +29,12 @@
     "@ionic-native/google-maps": "^3.12.1",
     "@ionic-native/google-plus": "^3.10.0",
     "@ionic-native/image-resizer": "^3.10.3",
+    "@ionic-native/media": "^3.12.1",
     "@ionic-native/photo-viewer": "^3.11.0",
     "@ionic-native/splash-screen": "3.4.2",
     "@ionic-native/status-bar": "3.4.2",
     "@ionic-native/transfer": "^3.10.3",
+    "@ionic-native/vibration": "^3.12.1",
     "@ionic/storage": "2.0.1",
     "@types/jasmine": "^2.5.47",
     "angularfire2": "^4.0.0-rc.0",
@@ -58,7 +60,9 @@
     "cordova-plugin-camera",
     "cordova-plugin-geolocation",
     "com-sarriaroman-photoviewer",
-    "cordova-plugin-googlemaps"
+    "cordova-plugin-googlemaps",
+    "cordova-plugin-vibration",
+    "cordova-plugin-media"
   ],
   "cordovaPlatforms": [],
   "description": "myApp: An Ionic project"

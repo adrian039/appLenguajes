@@ -35,6 +35,8 @@ import { ImageResizer } from '@ionic-native/image-resizer';
 import { Geolocation } from '@ionic-native/geolocation';
 import { PhotoViewer } from '@ionic-native/photo-viewer';
 import { GoogleMaps } from '@ionic-native/google-maps';
+import { Vibration } from '@ionic-native/vibration';
+import { MediaPlugin } from '@ionic-native/media';
 
 
 @NgModule({
@@ -99,6 +101,8 @@ import { GoogleMaps } from '@ionic-native/google-maps';
     Geolocation,
     PhotoViewer,
     GoogleMaps,
+    Vibration,
+    MediaPlugin,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

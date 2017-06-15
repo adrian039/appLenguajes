@@ -36,7 +36,7 @@ export class MapsPage {
         // create CameraPosition
         let position: CameraPosition = {
           target: ionic,
-          zoom: 18,
+          zoom: 15,
           tilt: 30
         };
 

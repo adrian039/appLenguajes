@@ -15,5 +15,6 @@
     "libc++.dylib": 1,
     "OpenGLES.framework": 1,
     "QuartzCore.framework": 1,
-    "UIKit.framework": 1
+    "UIKit.framework": 1,
+    "AudioToolbox.framework": 1
 }
