@@ -1,19 +1,26 @@
 <ion-menu [content]="content">
   <ion-header>
     <ion-toolbar>
+      <ion-row>
       <ion-title>Menu</ion-title>
+      <button ion-button color="light" clear icon-only (click)="editInfo()">
+      <ion-icon name='create'></ion-icon>
+    </button>
+      </ion-row>
     </ion-toolbar>
     <div style="background-image: url(https://firebasestorage.googleapis.com/v0/b/base-58db2.appspot.com/o/systemFiles%2Ffondo2.png?alt=media&token=611b5417-f577-4c2a-b98a-10b714032177);">
 
-      <img class="user" src="{{service.image}}">
+      <img button (click)="updateImage()" class="user" src="{{service.image}}">
 
 
       <h5 class="texto">{{service.name}}</h5>
+      <h5 class="texto">{{service.username}}</h5>
       <h5 class="texto">{{service.email}}</h5>
       <h5 class="texto">{{service.country}}</h5>
       <h5 class="texto">{{service.phone}}</h5>
       <h5 class="texto">{{service.address}}</h5>
       <h5 class="texto">.</h5>
+    
     </div>
   </ion-header>
   <ion-content>
