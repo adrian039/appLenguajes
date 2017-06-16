@@ -4,12 +4,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-row>
-      <ion-title>Notification Filters</ion-title>
-      <button ion-button color="light" clear icon-only (click)="presentPrompt()">
-      <ion-icon name='settings'></ion-icon>
-    </button>
-    </ion-row>
+    <ion-title>Notification Filters</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -19,7 +14,7 @@
   <ion-fab right bottom>
     <button ion-fab color="blue" (click)="newFilter()"><ion-icon name="add"></ion-icon></button>
   </ion-fab>
-<br>
+  <br>
   <ion-row>
     <ion-label>Notification Sound</ion-label>
     <ion-select [(ngModel)]="sound">
@@ -29,7 +24,7 @@
       <ion-option value="vibrate">vibrate</ion-option>
     </ion-select>
 
-<button ion-button (click)="saveSound()">Save</button>
+    <button ion-button (click)="saveSound()">Save</button>
   </ion-row>
   <br>
   <h4 style="color:white">My Filters</h4>
